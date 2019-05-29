@@ -1,0 +1,118 @@
+/**
+ * mim-common.css
+ * @version 3.1
+ * @author 王富贵
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ * 1.成功或失敗的提示框
+ * 2.弹窗
+ */
+/*1.成功或失敗的提示框*/
+/*最外层样式*/
+.mim-prompt_out {
+    width: 100%;
+    position: fixed;
+    opacity: 0;
+    z-index: 999999;
+}
+
+.mim-prompt_div_box, .mim-prompt_div_other {
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-box-align: center;
+    box-align: center;
+    width: 500px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+
+.mim-prompt_div_p, .mim-prompt_div_p1 {
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+}
+
+/*成功时样式*/
+.mim-prompt_div_box {
+    background-color: #f0f9eb;
+    border: 1px solid #0fce1b;
+    box-Shadow: 0 0 10px 1px rgba(15, 206, 27, .2);
+}
+
+.mim-prompt_div_p {
+    color: rgba(15, 206, 27, 1);
+}
+
+/*失败时样式*/
+.mim-prompt_div_other {
+    background-color: #fef0f0;
+    border: 1px solid #FE6E6E;
+    box-Shadow: 0 0 10px 1px rgba(254, 110, 110, .2);
+}
+
+.mim-prompt_div_p1 {
+    color: rgba(254, 110, 110, 1);
+}
+
+/*2弹窗*/
+/*最外层样式*/
+.mim-confirm_out {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    top: 0;
+    z-index: 999999;
+}
+
+/*内层样式*/
+.mim-confirm_inner {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, .5);
+}
+
+.mim-confirm_p {
+    color: #000000;
+    font-size: 18px;
+    width: 400px;
+    margin-top: 50px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.mim-confirm_button1, .mim-confirm_button2 {
+    cursor: pointer;
+    min-width: 80px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 50px;
+    text-align: center;
+    letter-spacing: 3px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+}
+
+.mim-confirm_button1 {
+    background-color: #d60000;
+    margin-left: 40px;
+}
+
+.mim-confirm_button2 {
+    float: right;
+    background-color: rgba(153, 153, 153, .8);
+    margin-right: 40px;
+}
+
