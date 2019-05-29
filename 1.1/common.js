@@ -566,20 +566,4 @@ var blobUploadEvt = function blobUploadEvt(e) {
   }).catch(function (err) {});
 };
 
-//分享的统计
-var shareEvt = function (id,type) {
-  $.ajax({
-    type: "post",
-    url: URL + "?m=api&c=ajax&a=countSharePv",
-    data:{
-      id:id,
-      type:type
-    },
-    success: function (data) {
-    },
-    error: function (arr) {
-      console.log(arr)
-    }
-  });
-};
 
