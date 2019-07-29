@@ -86,6 +86,18 @@
       			color:"yellow"
    		 });
 
-	
+4.1版本（比较上一版本）
 
+	*提示框改版（成功，失败，警告，消息）
+	调用方式：
+	MIM.prompt('我是一段成功文字','success',3000);
+	MIM.prompt('我是一段失败文字','error',3000);
+	MIM.prompt('我是一段警告文字','warning',3000);
+	MIM.prompt('我是一段消息文字','info',3000);
+
+	*确认弹窗改版（样式和调用方式）
+	调用方式：
+	 MIM.confirm('此操作将永久删除该文件, 是否继续?',function () {
+       	    MIM.prompt('我是一段成功文字','success',3000);
+    	});
 	
