@@ -1,12 +1,14 @@
 /**
  * mim-common.css
- * @version  5.1
+ * @version  5.2
  * @author 王富贵
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.
  * 1.提示框
  * 2.弹窗
  * 3.按钮样式
+ * 4.布局容器
+ * 5.加载图标
  */
 /*矢量图*/
 @import "//at.alicdn.com/t/font_1321360_h0v33hdtyao.css";
@@ -28,11 +30,20 @@
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
 }
-
+/*通配符*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: content-box;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", Arial, sans-serif
+}
 /*1.成功或失敗的提示框*/
 /*最外层样式*/
 .mim-prompt_success_box, .mim-prompt_error_box, .mim-prompt_warning_box, .mim-prompt_info_box {
-    width: 400px;
+    width: 412px;
     height: 25px;
     padding: 10px;
     z-index: 999999;
@@ -41,6 +52,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .mim-prompt_success_p, .mim-prompt_error_p, .mim-prompt_warning_p, .mim-prompt_info_p {
@@ -208,7 +223,7 @@
     margin-right: 15px;
 }
 
-/*按钮样式*/
+/*3按钮样式*/
 mim-button {
     user-select: none;
     -webkit-user-select: none;
@@ -309,5 +324,57 @@ mim-button[type=default]:active {
 mim-button[type=text]:active {
     color: #409eff;
 }
+
+/*4布局容器*/
+mim-container {
+    display: flex;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    flex-direction: column;
+}
+
+mim-header {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+mim-main {
+    display: block;
+    padding: 20px;
+    min-height: 160px;
+}
+
+mim-footer {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+/*5加载图标*/
+mim-loading{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: #dfdfdf solid 2.5px;
+    border-left-color: #19b6f8;
+    animation: UIloading 1s linear infinite;
+}
+
+@keyframes UIloading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 
 

@@ -1,118 +1,132 @@
-1.0�汾��
-	*ʹ��es6�﷨�����ڹȸ費������ie
+﻿1.0版本：
+	*使用es6语法仅用于谷歌不适用于ie
 
-	*�ɹ���ʧ������ʾ��
-	���÷�ʽ��prompt��"500","2000",true,"����һ�仰"��
+	*成功或失敗的提示框
+	调用方式：prompt（"500","2000",true,"我是一句话"）
 
-	*ʱ���ʽ��
-	���÷�ʽ��timeFilter��ʱ�����timeFilter1��ʱ�����timeFilter2��ʱ�����timeFilter3��ʱ�����timeFilter4��ʱ�����
+	*时间格式化
+	调用方式：timeFilter（时间戳）timeFilter1（时间戳）timeFilter2（时间戳）timeFilter3（时间戳）timeFilter4（时间戳）
 
-	*����
-	���÷�ʽ��confirm��"500","����һ�仰",{�ɹ��Ļص�����},"ȷ��(�ɲ���)","ȡ��(�ɲ���),{ȡ���Ļص�����}"��
+	*弹窗
+	调用方式：confirm（"500","我是一句话",{成功的回调函数},"确定(可不填)","取消(可不填),{取消的回调函数}"）
 
-	*��֤�뵹��ʱ����Ҫ��button��
-	���÷�ʽ��countDown("60",{�����ťǰCSS��ʽ},{�����ť��CSS��ʽ})
+	*验证码倒计时（需要用button）
+	调用方式：countDown("60",{点击按钮前CSS样式},{点击按钮后CSS样式})
 
-	*����
-	���÷�ʽ��likeResult("��ʾ��һ�仰",{��ʾ�������ʽ})
+	*点赞
+	调用方式：likeResult("提示的一句话",{提示话语的样式})
 	
-	*ͼƬ�ϴ������ƣ�����ϸ�Ķ���
+	*图片上传阿里云（请详细阅读）
 
-1.1�汾�����Ƚ���һ�汾��
+1.1版本：（比较上一版本）
 
-	*���������﷨�����������������
+	*更新所用语法，适用于所有浏览器
 
-	*��������֤�ķ�װ��
-	���÷�ʽ��verification("����","��Ҫ��֤������",{��֤ͨ���ķ���},{��֤ʧ�ܵķ���})
+	*新增（验证的封装）
+	调用方式：verification("类型","需要验证的内容",{验证通过的返回},{验证失败的返回})
 	
-	*�Ƴ������޹��ܣ�
+	*移除（点赞功能）
 
-2.0�汾��	���Ƚ���һ�汾��
+2.0版本：	（比较上一版本）
 
-	*����ȫ��д�����ص�CMM��
+	*采用全新写法挂载到CMM上
 	
-	*���÷�ʽ��ȫ�ı䣬��Ϊ��CMM.��������������
+	*调用方式完全改变，变为（CMM.方法（参数））
 	
-	*���� * 1.�ɹ���ʧ������ʾ��  2.���� 3.��֤�뵹��ʱ�������Ƴ�
+	*保留 * 1.成功或失敗的提示框  2.弹窗 3.验证码倒计时，其余移除
 
-2.1�汾�����Ƚ���һ�汾��
+2.1版本：（比较上一版本）
 
-	*����ȫ��д�����ص�MIM��
+	*采用全新写法挂载到MIM上
 
-	*���÷�ʽ�޽ϴ�仯
+	*调用方式无较大变化
 
-	*����  4.ʱ���ʽ��	
-	���÷�ʽ��MIM.timeFilter��ʱ���,"���������ղ���Ҫ����false��",������ʱ�ֲ���Ҫ����false��"��
+	*新增  4.时间格式化	
+	调用方式：MIM.timeFilter（时间戳,"（若年月日不需要则填false）",“（若时分不需要则填false）"）
 
-	5.����
+	5.点赞
 	
-	6.�Զ�����֤���ṩ�ֻ��ź�������֤�� 
-	���÷�ʽ��MIM.verifyReg("��֤���ͣ��ṩ�ֻ��ź����䣩������֤���������ʽ","��֤����ֵ","�Ƿ����")
+	6.自定义验证（提供手机号和邮箱认证） 
+	调用方式：MIM.verifyReg("验证类型（提供手机号和邮箱）或者验证的正则表达式","验证的数值","是否必填")
 
-	7.������ض���
+	7.点击返回顶部
 
-	���÷�ʽ��MIM.goToTop()���ü���
+	调用方式：MIM.goToTop()调用即可
 
-3.0�汾���Ƚ���һ�汾��
+3.0版本（比较上一版本）
 
-	*����ȫ��д����ʽ��js����
+	*采用全新写法样式和js分离
 
-	*���÷�ʽ�����ı�֧��jq���÷�����֧��$$��MIM����
-	����$$.prompt('����һ������',true,1000);
-    	MIM.prompt('����һ������',false,1000);
-    	$('body').prompt('����һ������',true,1000);
-	�����Ե��ã���ȡ�����������ӿ���
-	����������ʽ��������css�и��£�
+	*调用方式发生改变支持jq调用方法，支持$$和MIM调用
+	例：$$.prompt('我是一段文字',true,1000);
+    	MIM.prompt('我是一段文字',false,1000);
+    	$('body').prompt('我是一段文字',true,1000);
+	均可以调用，且取消了自主添加宽度
+	（若更改样式，均可在css中更新）
 
-	*����������ɾ��
+	*无新增，无删除
 
-3.1�汾���Ƚ���һ�汾��
+3.1版本（比较上一版本）
 
-	*���÷�ʽ�޹���仯
+	*调用方式无过多变化
 
-	*����	8.�򵥵�AJAX��װ
- 		9.�򵥵���ק(ע���ƶ���Ԫ�ر���Ϊ���Զ�λ)
+	*新增	8.简单的AJAX封装
+ 		9.简单的拖拽(注：移动的元素必须为绝对定位)
 
-4.0�汾���Ƚ���һ�汾��
+4.0版本（比较上一版本）
 
-	*���÷�ʽ�����仯��3.��֤�뵹��ʱ5.���� 9. ��ק���ҵ��÷�ʽΨһ
-	����   ������ǰ�� $('#zan').click(function () {
-      		$$.likeResult("��",{
+	*调用方式发生变化（3.验证码倒计时5.点赞 9. 拖拽）且调用方式唯一
+	例：   （更新前） $('#zan').click(function () {
+      		$$.likeResult("赞",{
         			color:"yellow"
       		});
     	        });
 
-    		(���º�)$('#zan').likeResult("��",{
+    		(更新后)$('#zan').likeResult("赞",{
       			color:"yellow"
    		 });
 
-5.0�汾���Ƚ���һ�汾��
+5.0版本（比较上一版本）
 
-	*��ʾ��İ棨�ɹ���ʧ�ܣ����棬��Ϣ��
-	���÷�ʽ��
-	MIM.prompt('����һ�γɹ�����','success',3000);
-	MIM.prompt('����һ��ʧ������','error',3000);
-	MIM.prompt('����һ�ξ�������','warning',3000);
-	MIM.prompt('����һ����Ϣ����','info',3000);
+	*提示框改版（成功，失败，警告，消息）
+	调用方式：
+	MIM.prompt('我是一段成功文字','success',3000);
+	MIM.prompt('我是一段失败文字','error',3000);
+	MIM.prompt('我是一段警告文字','warning',3000);
+	MIM.prompt('我是一段消息文字','info',3000);
 
-	*ȷ�ϵ����İ棨��ʽ�͵��÷�ʽ��
-	���÷�ʽ��
-	 MIM.confirm('�˲���������ɾ�����ļ�, �Ƿ����?',function () {
-       	    MIM.prompt('����һ�γɹ�����','success',3000);
+	*确认弹窗改版（样式和调用方式）
+	调用方式：
+	 MIM.confirm('此操作将永久删除该文件, 是否继续?',function () {
+       	    MIM.prompt('我是一段成功文字','success',3000);
     	});
 
 
-5.1�汾���Ƚ���һ�汾��
-	*��ʾ��İ棨�����ֶ�ɾ�����ܣ�
-	���÷�ʽ��������ɾ����true����ɾ�����ܣ�
-	  MIM.prompt('����һ�γɹ�����','success',3000,true);
-	*��ť��ʽ
-	���÷�ʽ��
-	<mim-button type="default" id="del">ɾ&nbsp;&nbsp;��</mim-button>
-	<mim-button type="primary" disabled>��Ҫ��ť</mim-button>
-	<mim-button type="primary"><i class='iconfont'>&#xe60a;</i>��&nbsp;��</mim-button>
-	<mim-button type="success">�ɹ���ť</mim-button>
-	<mim-button type="info">��Ϣ��ť</mim-button>
-	<mim-button type="warning">���水ť</mim-button>
-	<mim-button type="danger">Σ�հ�ť</mim-button>
-	<mim-button type="text">���ְ�ť</mim-button>
+5.1版本（比较上一版本）
+	*提示框改版（增加手动删除功能）
+	调用方式（不加则不删除，true则开启删除功能）
+	  MIM.prompt('我是一段成功文字','success',3000,true);
+	*按钮样式
+	调用方式：
+	<mim-button type="default" id="del">删&nbsp;&nbsp;除</mim-button>
+	<mim-button type="primary" disabled>主要按钮</mim-button>
+	<mim-button type="primary"><i class='iconfont'>&#xe60a;</i>搜&nbsp;索</mim-button>
+	<mim-button type="success">成功按钮</mim-button>
+	<mim-button type="info">信息按钮</mim-button>
+	<mim-button type="warning">警告按钮</mim-button>
+	<mim-button type="danger">危险按钮</mim-button>
+	<mim-button type="text">文字按钮</mim-button>
+
+5.2版本（比较上一版本）
+
+	*布局容器
+	调用方式：
+	<mim-container>
+    		<mim-header>Header</mim-header>
+    		<mim-main>Main</mim-main>
+    		<mim-footer>Footer</mim-footer>
+	</mim-container>
+
+	*加载图标
+	调用方式：
+	<mim-loading></mim-loading>
