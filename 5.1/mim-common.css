@@ -6,7 +6,6 @@
  * Licensed under the MIT license.
  * 1.提示框
  * 2.弹窗
- * 3.按钮样式
  */
 /*矢量图*/
 @import "//at.alicdn.com/t/font_1321360_h0v33hdtyao.css";
@@ -207,107 +206,4 @@
     color: #606266;;
     margin-right: 15px;
 }
-
-/*按钮样式*/
-mim-button {
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 10px;
-    display: inline-block;
-    padding: 0 10px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-mim-button .iconfont {
-    font-size: 14px !important;
-    display: inline-block;
-    vertical-align: top;
-    font-style: normal;
-    margin: 0 5px 0 0;
-}
-
-/*普通*/
-mim-button[type=default] {
-    background-color: #ffffff;
-    border: 1px solid #dcdfe6;
-    color: #606266;
-}
-
-/*文本*/
-mim-button[type=text] {
-    color: #66b1ff;
-    display: inline;
-    padding: 0;
-}
-
-/*主要*/
-mim-button[type=primary] {
-    background-color: #409eff;
-    border: 1px solid #409eff;
-}
-
-/*禁用*/
-mim-button[disabled] {
-    cursor: not-allowed;
-    pointer-events: none;
-    opacity: .6;
-}
-
-/*危险*/
-mim-button[type=danger] {
-    background-color: #f56c6c;
-    border: 1px solid #f56c6c;
-}
-
-/*成功*/
-mim-button[type=success] {
-    background-color: #67c23a;
-    border: 1px solid #67c23a;
-}
-
-/*警告*/
-mim-button[type=warning] {
-    background-color: #e6a23c;
-    border: 1px solid #e6a23c;
-}
-
-/*信息*/
-mim-button[type=info] {
-    background-color: #909399;
-    border: 1px solid #909399;
-}
-
-mim-button:hover {
-    opacity: .8;
-}
-
-mim-button:active {
-    opacity: 1;
-}
-
-mim-button[type=default]:hover {
-    color: #409eff;
-    border-color: #c6e2ff;
-    background-color: #ecf5ff;
-}
-
-mim-button[type=default]:active {
-    background-color: #ffffff;
-    border: 1px solid #dcdfe6;
-    color: #606266;
-}
-
-mim-button[type=text]:active {
-    color: #409eff;
-}
-
 

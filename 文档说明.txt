@@ -106,6 +106,9 @@
 	*提示框改版（增加手动删除功能）
 	调用方式（不加则不删除，true则开启删除功能）
 	  MIM.prompt('我是一段成功文字','success',3000,true);
+
+6.0版本（比较上一版本，开启mim-ui）
+
 	*按钮样式
 	调用方式：
 	<mim-button type="default" id="del">删&nbsp;&nbsp;除</mim-button>
@@ -116,9 +119,6 @@
 	<mim-button type="warning">警告按钮</mim-button>
 	<mim-button type="danger">危险按钮</mim-button>
 	<mim-button type="text">文字按钮</mim-button>
-
-5.2版本（比较上一版本）
-
 	*布局容器
 	调用方式：
 	<mim-container>
@@ -130,3 +130,31 @@
 	*加载图标
 	调用方式：
 	<mim-loading></mim-loading>
+
+6.1版本（比较上一版本）
+	*input样式
+	调用方式：
+	//可清除
+	<mim-input>
+    		<input type="text" class="mim-input" placeholder="请输入内容">
+    		<span class="iconfont clearInput">&#xe643;</span>
+	</mim-input>
+	//前带icon
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入搜索内容">
+    		<span class="iconfont prefix-icon">&#xe60a;</span>
+	</mim-input>
+	//后带icon
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入日期">
+    		<span class="iconfont suffix-icon">&#xe669;</span>
+	</mim-input>
+	//基础
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入内容">
+	</mim-input>
+//密码显示框
+	<mim-input>
+    		<input type="password" class="mim-input" placeholder="请输入密码">
+    		<span class="iconfont showPassword">&#xe640;</span>
+	</mim-input>
