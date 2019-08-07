@@ -1,0 +1,564 @@
+/**
+ * mim-common.css
+ * @version  6.2
+ * @author 王富贵
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ * 1.提示框
+ * 2.弹窗
+ * 3.按钮样式
+ * 4.布局容器
+ * 5.加载图标
+ * 6.input
+ * 7.侧边栏
+ */
+/*矢量图*/
+@import "//at.alicdn.com/t/font_1321360_bnuhpcyczk.css";
+
+@font-face {
+    font-family: 'iconfont';  /* project id 1321360 */
+    src: url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.eot');
+    src: url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1321360_bnuhpcyczk.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-size: 25px !important;
+    font-style: normal;
+    margin: 0 10px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*通配符*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: content-box;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", Arial, sans-serif
+}
+
+/*1.成功或失敗的提示框*/
+/*最外层样式*/
+.mim-prompt_success_box, .mim-prompt_error_box, .mim-prompt_warning_box, .mim-prompt_info_box {
+    width: 412px;
+    height: 25px;
+    padding: 10px;
+    z-index: 999999;
+    border-radius: 4px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mim-prompt_success_p, .mim-prompt_error_p, .mim-prompt_warning_p, .mim-prompt_info_p {
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    float: left;
+}
+
+.mim-prompt_success_p span, .mim-prompt_error_p span, .mim-prompt_warning_p span, .mim-prompt_info_p span {
+    width: 320px;
+    display: inline-block;
+    line-height: 25px;
+    height: 25px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mim-prompt_i {
+    color: #909399;
+    cursor: pointer;
+}
+
+/*成功时样式*/
+.mim-prompt_success_box {
+    background-color: #f0f9eb;
+    border: 1px solid #67C23A;
+}
+
+.mim-prompt_success_p {
+    color: #67C23A;
+}
+
+/*失败时样式*/
+.mim-prompt_error_box {
+    background-color: rgb(253, 226, 226);
+    border: 1px solid #F56C6C;
+}
+
+.mim-prompt_error_p {
+    color: #F56C6C;
+}
+
+/*警告时样式*/
+.mim-prompt_warning_box {
+    background-color: rgb(250, 236, 216);
+    border: 1px solid #E6A23C;
+}
+
+.mim-prompt_warning_p {
+    color: #E6A23C;
+}
+
+/*普通消息样式*/
+.mim-prompt_info_box {
+    background-color: rgb(233, 233, 235);
+    border: 1px solid #909399;
+}
+
+.mim-prompt_info_p {
+    color: #909399;
+}
+
+/*2弹窗*/
+/*最外层样式*/
+.mim-confirm_out {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    z-index: 999999;
+}
+
+/*内层样式*/
+.mim-confirm_inner {
+    position: absolute;
+    width: 450px;
+    height: 160px;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -225px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, .3);
+}
+
+.mim-confirm_h {
+    font-size: 20px;
+    line-height: 1;
+    color: #303133;
+    padding: 10px 0 0 10px;
+    text-align: left;
+    letter-spacing: 1px;
+    font-weight: normal;
+}
+
+.mim-confirm_h span {
+    vertical-align: top;
+}
+
+.mim-confirm_h i {
+    font-size: 20px !important;
+    float: right;
+    cursor: pointer;
+}
+
+.mim-confirm_p {
+    color: #606266;
+    font-size: 18px;
+    width: 100%;
+    min-height: 55px;
+    margin-top: 25px;
+    text-align: left;
+    letter-spacing: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mim-confirm_p i {
+    color: #E6A23C;
+    font-size: 30px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mim-confirm_p span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.mim-confirm_button1, .mim-confirm_button2 {
+    cursor: pointer;
+    min-width: 75px;
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 3px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    float: right;
+}
+
+.mim-confirm_button1 {
+    background-color: #409eff;
+    border: 1px solid #409eff;
+    margin-right: 15px;
+}
+
+.mim-confirm_button2 {
+    float: right;
+    border: 1px solid #dcdfe6;
+    background-color: #ffffff;
+    color: #606266;;
+    margin-right: 15px;
+}
+
+/*3按钮样式*/
+mim-button {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+    display: inline-block;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+mim-button .iconfont {
+    font-size: 14px !important;
+    display: inline-block;
+    vertical-align: top;
+    font-style: normal;
+    margin: 0 5px 0 0;
+}
+
+/*普通*/
+mim-button[type=default] {
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+/*文本*/
+mim-button[type=text] {
+    color: #66b1ff;
+    display: inline;
+    padding: 0;
+}
+
+/*主要*/
+mim-button[type=primary] {
+    background-color: #409eff;
+    border: 1px solid #409eff;
+}
+
+/*禁用*/
+mim-button[disabled] {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .6;
+}
+
+/*危险*/
+mim-button[type=danger] {
+    background-color: #f56c6c;
+    border: 1px solid #f56c6c;
+}
+
+/*成功*/
+mim-button[type=success] {
+    background-color: #67c23a;
+    border: 1px solid #67c23a;
+}
+
+/*警告*/
+mim-button[type=warning] {
+    background-color: #e6a23c;
+    border: 1px solid #e6a23c;
+}
+
+/*信息*/
+mim-button[type=info] {
+    background-color: #909399;
+    border: 1px solid #909399;
+}
+
+mim-button:hover {
+    opacity: .8;
+}
+
+mim-button:active {
+    opacity: 1;
+}
+
+mim-button[type=default]:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+
+mim-button[type=default]:active {
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+mim-button[type=text]:active {
+    color: #409eff;
+}
+
+/*4布局容器*/
+mim-container {
+    display: flex;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    flex-direction: column;
+}
+
+mim-header {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+mim-aside {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 160px;
+}
+
+mim-main {
+    display: block;
+    padding: 20px;
+    flex: 1;
+    flex-basis: auto;
+    min-height: 160px;
+}
+
+mim-footer {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+/*5加载图标*/
+mim-loading {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: #dfdfdf solid 2.5px;
+    border-left-color: #19b6f8;
+    animation: UIloading 1s linear infinite;
+}
+
+@keyframes UIloading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*input样式*/
+input::-webkit-input-placeholder {
+    color: #b8c4ce !important;
+}
+
+input::-moz-placeholder {
+    color: #b8c4ce !important;
+}
+
+input::-ms-input-placeholder {
+    color: #b8c4ce !important;
+}
+
+mim-input {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+}
+
+mim-input .mim-input {
+    cursor: pointer !important;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+
+.mim-input:hover {
+    border-color: #c0c4cc;
+}
+
+.mim-input:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+mim-input .mim-input[disabled] {
+    background-color: #f5f7fa;
+    border-color: #e4e7ed;
+    color: #c0c4cc;
+    cursor: not-allowed;
+}
+
+mim-input span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #c0c4cc;
+}
+
+mim-input .clearInput {
+    display: none;
+}
+
+mim-input .iconfont {
+    cursor: pointer;
+    font-size: 14px !important;
+    user-select: none;
+}
+
+mim-input .prefix-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #c0c4cc;
+    width: 14px;
+}
+
+/*侧栏*/
+mim-menu {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+mim-menu ul li {
+    list-style: none;
+    width: 100%;
+}
+
+mim-menu ul li .mim-menu {
+    height: 56px;
+    line-height: 56px;
+    font-size: 14px;
+    padding: 0 20px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s, background-color .3s, color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+mim-menu ul li .mim-menu * {
+    vertical-align: middle;
+}
+
+mim-menu ul li .disabled {
+    opacity: .25;
+    cursor: not-allowed !important;
+}
+
+.mim-menu .iconfont {
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    width: 24px;
+    text-align: center;
+    font-size: 18px !important;
+    color: #909399;
+}
+
+mim-menu ul li .mim-menu .icon-copy-down {
+    position: absolute;
+    font-size: 12px !important;
+    color: #909399;
+    right: 20px;
+    width: 12px;
+    margin: 0;
+    vertical-align: middle;
+    transition: transform .3s;
+}
+
+mim-menu ul .mim-menu:hover {
+    background-color: #ecf5ff;
+}
+
+mim-menu ul .mim-menu-item:hover {
+    background-color: #ecf5ff;
+}
+
+/*点击成功后样式修改*/
+mim-menu ul .is-active,mim-menu ul .is-active .iconfont {
+    color: #409eff !important;
+    /*background-color: #ecf5ff;*/
+}
+
+.second-mim-menu {
+    display: none;
+}
+
+mim-menu .second-mim-menu li {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 55px;
+    font-size: 14px;
+    color: #303133;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s, background-color .3s, color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+

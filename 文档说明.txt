@@ -158,3 +158,56 @@
     		<input type="password" class="mim-input" placeholder="请输入密码">
     		<span class="iconfont showPassword">&#xe640;</span>
 	</mim-input>
+
+6.2版本（比较上一版本）
+
+	*更改布局容器添加mim-aside
+	调用方式：
+  	<mim-aside>
+        	<aside style="width: 200px">aside</aside>
+        	<mim-main style="background: #67c23a">Main</mim-main>
+    	</mim-aside>
+
+	*侧边栏样式
+	调用方式：
+	    <mim-menu>
+        <ul>
+            <li>
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe624;</i>
+                    <span index="1">导航一</span>
+                    <i class="iconfont icon-copy-down" bool="false">&#xe668;</i>
+                </div>
+                <ul class="second-mim-menu">
+                    <li class="mim-menu-item">
+                        <span index="2">导航一（1）</span>
+                    </li>
+                    <li class="mim-menu-item">
+                        <span index="3">导航一（2）</span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="mim-menu disabled">
+                    <i class="iconfont">&#xe621;</i>
+                    <span index="4">导航二</span>
+                </div>
+            </li>
+            <li class="">
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe66b;</i>
+                    <span index="5">导航三</span>
+                </div>
+            </li>
+            <li>
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe605;</i>
+                    <span index="6">导航四</span>
+                </div>
+            </li>
+        </ul>
+    </mim-menu>
+	*初始化侧边栏样式（function (BackCss, FountCss, hoverBackCss, hoverFountCss)）
+	*BackCss背景色，FountCss文字颜色，hoverBackCss鼠标滑过后背景颜色,hoverFountCss鼠标滑过后文字颜色
+	调用方式：
+	    MIM.mimMenuInit('yellow','blue','#d60000','#ffffff')
