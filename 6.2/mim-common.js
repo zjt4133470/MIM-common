@@ -353,7 +353,10 @@
         $('mim-menu ul .mim-menu').css({
             'color': FountCss
         });
-        $('mim-menu ul .mim-menu .iconfont').css({
+        // $('mim-menu ul .mim-menu .iconfont').css({
+        //     'color': FountCss
+        // });
+        $('mim-menu .second-mim-menu li').css({
             'color': FountCss
         });
         $('mim-menu ul .mim-menu').hover(function () {
@@ -361,17 +364,17 @@
                 'background-color': hoverBackCss,
                 'color': hoverFountCss
             });
-            $(this).find('.iconfont').css({
-                'color': hoverFountCss
-            })
+            // $(this).find('.iconfont').css({
+            //     'color': hoverFountCss
+            // })
         }, function () {
             $(this).css({
                 'background': 'none',
                 'color': FountCss
             });
-            $(this).find('.iconfont').css({
-                'color': FountCss
-            })
+            // $(this).find('.iconfont').css({
+            //     'color': FountCss
+            // })
         });
         $('mim-menu ul .mim-menu-item').hover(function () {
             $(this).css({
@@ -384,13 +387,6 @@
                 'color': FountCss
             })
         });
-        $('mim-menu ul li').on('click', function (e) {
-
-        })
-        $('mim-menu ul .is-active').css({
-            'color': "" + hoverBackCss + "!important",
-            'background-color': hoverFountCss
-        })
     };
 }();
 //mim-ui
