@@ -13,8 +13,8 @@
  * 7.点击返回顶部
  * 8.简单的AJAX封装
  * 9.简单的拖拽(注：移动的元素必须为绝对定位)
- * 10.mim-ui
- * 11.初始化侧边栏（MimMenu）样式
+ * mim-ui中js
+ * 1.初始化侧边栏（MimMenu）样式
  */
 !function () {
     if (typeof (jQuery) !== 'function') {
@@ -189,7 +189,7 @@
         var m = oDate.getMinutes();
         parseInt(m) < 10 ? m = '0' + m : m = m;
         var s = oDate.getSeconds();
-        parseInt(m) < 10 ? s = '0' + s : s = s;
+        parseInt(s) < 10 ? s = '0' + s : s = s;
 
         if (before !== false && later !== false) {
             return y + before + M + before + d + ' ' + h + later + m + later + s
@@ -462,10 +462,30 @@ $(function () {
             }
         }
     });
-    //取消事件
+    //侧栏取消事件
     $('mim-menu ul li .disabled').click(function (e) {
         e.stopPropagation();
         e.preventDefault();
     });
-
+    // Layout 布局
+    for (var i=0;i<$('mim-row mim-col').length;i++){
+        var spanWidth = $('mim-row mim-col').eq(i).attr('span');
+        spanWidth = 24/spanWidth;
+        spanWidth = 1/spanWidth;
+        spanWidth = spanWidth*100;
+        $('mim-row mim-col').eq(i).css({
+            "float": "left",
+            "boxSizing": "border-box",
+            "width": spanWidth +'%',
+            "minHeight": "36px"
+        })
+    }
+    for (var j=0;j<$('mim-row').length;j++){
+        var paddingWidth = $('mim-row').eq(j).attr('gutter');
+        paddingWidth = paddingWidth/2;
+        $('mim-row').eq(j).find('mim-col').css({
+            marginLeft:paddingWidth,
+            marginRight:paddingWidth
+        })
+    }
 });

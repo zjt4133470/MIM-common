@@ -236,7 +236,6 @@ mim-button {
     -ms-user-select: none;
     cursor: pointer;
     border-radius: 4px;
-    margin-left: 10px;
     display: inline-block;
     padding: 0 10px;
     height: 40px;
@@ -331,6 +330,7 @@ mim-button[type=text]:active {
 }
 
 /*4布局容器*/
+/*Container 布局容器*/
 mim-container {
     display: flex;
     flex: 1;
@@ -371,7 +371,27 @@ mim-footer {
     padding: 0 20px;
     line-height: 60px;
 }
-
+/*Layout 布局*/
+mim-row{
+    display: flex;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    zoom: 1;
+}
+mim-row:before,mim-row:after{
+    display: table;
+    content: "";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+mim-col{
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 36px;
+}
 /*5加载图标*/
 mim-loading {
     display: inline-block;
