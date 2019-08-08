@@ -470,13 +470,18 @@ $(function () {
     // Layout 布局
     for (var i=0;i<$('mim-row mim-col').length;i++){
         var spanWidth = $('mim-row mim-col').eq(i).attr('span');
+        var spanWidthLeft = $('mim-row mim-col').eq(i).attr('offset');
         spanWidth = 24/spanWidth;
         spanWidth = 1/spanWidth;
         spanWidth = spanWidth*100;
+        spanWidthLeft = 24/spanWidthLeft;
+        spanWidthLeft = 1/spanWidthLeft;
+        spanWidthLeft = spanWidthLeft*100;
         $('mim-row mim-col').eq(i).css({
             "float": "left",
             "boxSizing": "border-box",
             "width": spanWidth +'%',
+            "marginLeft":spanWidthLeft+'%',
             "minHeight": "36px"
         })
     }
