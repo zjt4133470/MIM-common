@@ -433,6 +433,18 @@ $(function () {
     }
 
     // 侧栏
+    var active = $('mim-menu').attr('default-active');
+    active = (active == "" || active == null || typeof (active) == "undefined") ? '' : active;
+    if (active) {
+        for (var is = 0; is < $('mim-menu ul li').length; is++) {
+            if ($('mim-menu ul li').eq(is).find('span').attr('index') == active) {
+                $('mim-menu ul li').eq(is).addClass('is-active').siblings().removeClass('is-active');
+                $('mim-menu ul li').eq(is).parent().parent().siblings().removeClass('is-active');
+                $('mim-menu ul li').eq(is).siblings().children().children().removeClass('is-active');
+                $('mim-menu ul li').eq(is).parent().parent().siblings().children().children().removeClass('is-active')
+            }
+        }
+    }
     $('mim-menu ul li').on('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -468,29 +480,29 @@ $(function () {
         e.preventDefault();
     });
     // Layout 布局
-    for (var i=0;i<$('mim-row mim-col').length;i++){
+    for (var i = 0; i < $('mim-row mim-col').length; i++) {
         var spanWidth = $('mim-row mim-col').eq(i).attr('span');
         var spanWidthLeft = $('mim-row mim-col').eq(i).attr('offset');
-        spanWidth = 24/spanWidth;
-        spanWidth = 1/spanWidth;
-        spanWidth = spanWidth*100;
-        spanWidthLeft = 24/spanWidthLeft;
-        spanWidthLeft = 1/spanWidthLeft;
-        spanWidthLeft = spanWidthLeft*100;
+        spanWidth = 24 / spanWidth;
+        spanWidth = 1 / spanWidth;
+        spanWidth = spanWidth * 100;
+        spanWidthLeft = 24 / spanWidthLeft;
+        spanWidthLeft = 1 / spanWidthLeft;
+        spanWidthLeft = spanWidthLeft * 100;
         $('mim-row mim-col').eq(i).css({
             "float": "left",
             "boxSizing": "border-box",
-            "width": spanWidth +'%',
-            "marginLeft":spanWidthLeft+'%',
+            "width": spanWidth + '%',
+            "marginLeft": spanWidthLeft + '%',
             "minHeight": "36px"
         })
     }
-    for (var j=0;j<$('mim-row').length;j++){
+    for (var j = 0; j < $('mim-row').length; j++) {
         var paddingWidth = $('mim-row').eq(j).attr('gutter');
-        paddingWidth = paddingWidth/2;
+        paddingWidth = paddingWidth / 2;
         $('mim-row').eq(j).find('mim-col').css({
-            marginLeft:paddingWidth,
-            marginRight:paddingWidth
+            marginLeft: paddingWidth,
+            marginRight: paddingWidth
         })
     }
 });
