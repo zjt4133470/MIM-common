@@ -13,16 +13,16 @@
  * 7.侧边栏
  */
 /*矢量图*/
-@import "//at.alicdn.com/t/font_1321360_mb98wq87lz.css";
+@import "//at.alicdn.com/t/font_1321360_mww3flj41bf.css";
 
 @font-face {
     font-family: 'iconfont';  /* project id 1321360 */
-    src: url('//at.alicdn.com/t/font_1321360_mb98wq87lz.eot');
-    src: url('//at.alicdn.com/t/font_1321360_mb98wq87lz.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1321360_mb98wq87lz.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1321360_mb98wq87lz.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1321360_mb98wq87lz.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1321360_mb98wq87lz.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1321360_mww3flj41bf.eot');
+    src: url('//at.alicdn.com/t/font_1321360_mww3flj41bf.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -254,11 +254,28 @@ mim-button .iconfont {
     margin: 0 5px 0 0;
 }
 
+/*仅有图标*/
+mim-button .onlyIconfont {
+    margin: 0 10px;
+}
+
 /*普通*/
 mim-button[type=default] {
     background-color: #ffffff;
     border: 1px solid #dcdfe6;
     color: #606266;
+}
+
+mim-button[plain][type=default] {
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+mim-button[plain][type=default]:hover {
+    background: #fff;
+    border-color: #409eff;
+    color: #409eff;
 }
 
 /*文本*/
@@ -268,12 +285,6 @@ mim-button[type=text] {
     padding: 0;
 }
 
-/*主要*/
-mim-button[type=primary] {
-    background-color: #409eff;
-    border: 1px solid #409eff;
-}
-
 /*禁用*/
 mim-button[disabled] {
     cursor: not-allowed;
@@ -281,8 +292,45 @@ mim-button[disabled] {
     opacity: .6;
 }
 
+/*圆角按钮*/
+mim-button[round] {
+    border-radius: 20px;
+    padding: 0 15px;
+}
+
+/*主要*/
+mim-button[type=primary] {
+    background-color: #409eff;
+    border: 1px solid #409eff;
+}
+
+mim-button[plain][type =primary] {
+    color: #409eff;
+    background: #ecf5ff;
+    border-color: #b3d8ff;
+}
+
+mim-button[plain][type =primary]:hover, mim-button[plain][type =primary]:active, mim-button[plain][type =primary]:focus {
+    color: #ffffff;
+    background-color: #409eff;
+    border: 1px solid #409eff;
+    outline: none;
+}
+
 /*危险*/
 mim-button[type=danger] {
+    background-color: #f56c6c;
+    border: 1px solid #f56c6c;
+}
+
+mim-button[plain][type=danger] {
+    color: #f56c6c;
+    background: #fef0f0;
+    border-color: #fbc4c4;
+}
+
+mim-button[plain][type=danger]:hover, mim-button[plain][type=danger]:active, mim-button[plain][type=danger]:focus {
+    color: #ffffff;
     background-color: #f56c6c;
     border: 1px solid #f56c6c;
 }
@@ -293,14 +341,50 @@ mim-button[type=success] {
     border: 1px solid #67c23a;
 }
 
+mim-button[plain][type=success] {
+    color: #67c23a;
+    background: #f0f9eb;
+    border-color: #c2e7b0;
+}
+
+mim-button[plain][type=success]:hover, mim-button[plain][type=danger]:active, mim-button[plain][type=danger]:focus {
+    color: #ffffff;
+    background-color: #67c23a;
+    border: 1px solid #67c23a;
+}
+
 /*警告*/
 mim-button[type=warning] {
     background-color: #e6a23c;
     border: 1px solid #e6a23c;
 }
 
+mim-button[plain][type=warning] {
+    color: #e6a23c;
+    background: #fdf6ec;
+    border-color: #f5dab1;
+}
+
+mim-button[plain][type=warning]:hover, mim-button[plain][type=warning]:active, mim-button[plain][type=warning]:focus {
+    color: #ffffff;
+    background-color: #e6a23c;
+    border: 1px solid #e6a23c;
+}
+
 /*信息*/
 mim-button[type=info] {
+    background-color: #909399;
+    border: 1px solid #909399;
+}
+
+mim-button[plain][type=info] {
+    color: #909399;
+    background: #f4f4f5;
+    border-color: #d3d4d6;
+}
+
+mim-button[plain][type=info]:hover, mim-button[plain][type=info]:active, mim-button[plain][type=info]:focus {
+    color: #ffffff;
     background-color: #909399;
     border: 1px solid #909399;
 }
@@ -371,27 +455,31 @@ mim-footer {
     padding: 0 20px;
     line-height: 60px;
 }
+
 /*Layout 布局*/
-mim-row{
+mim-row {
     display: flex;
     width: 100%;
     position: relative;
     box-sizing: border-box;
     zoom: 1;
 }
-mim-row:before,mim-row:after{
+
+mim-row:before, mim-row:after {
     display: table;
     content: "";
     height: 0;
     clear: both;
     visibility: hidden;
 }
-mim-col{
+
+mim-col {
     float: left;
     box-sizing: border-box;
     width: 100%;
     min-height: 36px;
 }
+
 /*5加载图标*/
 mim-loading {
     display: inline-block;
