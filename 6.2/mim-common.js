@@ -13,8 +13,6 @@
  * 7.点击返回顶部
  * 8.简单的AJAX封装
  * 9.简单的拖拽(注：移动的元素必须为绝对定位)
- * mim-ui中js
- * 1.初始化侧边栏（MimMenu）样式
  */
 !function () {
     if (typeof (jQuery) !== 'function') {
@@ -341,56 +339,15 @@
             })
         });
     };
-
-    //初始化侧边栏（MimMenu）样式
-    jQuery.fn.mimMenuInit = MIM.mimMenuInit = function (BackCss, FountCss, hoverBackCss, hoverFountCss) {
-        /*
-       * @param BackCss背景色，FountCss文字颜色，hoverBackCss鼠标滑过后背景颜色,hoverFountCss鼠标滑过后文字颜色
-       * */
-        $('mim-menu ul li').css({
-            'background': BackCss
-        });
-        $('mim-menu ul .mim-menu').css({
-            'color': FountCss
-        });
-        // $('mim-menu ul .mim-menu .iconfont').css({
-        //     'color': FountCss
-        // });
-        $('mim-menu .second-mim-menu li').css({
-            'color': FountCss
-        });
-        $('mim-menu ul .mim-menu').hover(function () {
-            $(this).css({
-                'background-color': hoverBackCss,
-                'color': hoverFountCss
-            });
-            // $(this).find('.iconfont').css({
-            //     'color': hoverFountCss
-            // })
-        }, function () {
-            $(this).css({
-                'background': 'none',
-                'color': FountCss
-            });
-            // $(this).find('.iconfont').css({
-            //     'color': FountCss
-            // })
-        });
-        $('mim-menu ul .mim-menu-item').hover(function () {
-            $(this).css({
-                'background-color': hoverBackCss,
-                'color': hoverFountCss
-            })
-        }, function () {
-            $(this).css({
-                'background': 'none',
-                'color': FountCss
-            })
-        });
-    };
 }();
 //mim-ui
 $(function () {
+    //button
+    for (var b = 0; b < $('mim-button').length; b++) {
+        if ($('mim-button').eq(b).attr('loading') == 'true') {
+            $('<i class="iconfont mim-loading">&#xe687;</i>').appendTo($('mim-button').eq(b))
+        }
+    }
     //input
     $('mim-input .clearInput').prev().css('padding-right', '30px');
     $('mim-input .showPassword').prev().css('padding-right', '30px');
@@ -433,6 +390,54 @@ $(function () {
     }
 
     // 侧栏
+    //背景色
+    var backgroundColor = $('mim-menu').attr('background-color');
+    backgroundColor = (backgroundColor == "" || backgroundColor == null || typeof (backgroundColor) == "undefined") ? '' : backgroundColor;
+    if (backgroundColor) {
+        $('mim-menu ul li').css({
+            'background': backgroundColor
+        });
+    }
+    //文字颜色
+    var textColor = $('mim-menu').attr('text-color');
+    textColor = (textColor == "" || textColor == null || typeof (textColor) == "undefined") ? '' : textColor;
+    if (textColor) {
+        $('mim-menu ul .mim-menu').css({
+            'color': textColor
+        });
+        $('mim-menu .second-mim-menu li').css({
+            'color': textColor
+        });
+    }
+    //鼠标滑过后背景色
+    var hoverBgColor = $('mim-menu').attr('hover-bgColor');
+    hoverBgColor = (hoverBgColor == "" || hoverBgColor == null || typeof (hoverBgColor) == "undefined") ? '' : hoverBgColor;
+    var hoverTextColor = $('mim-menu').attr('hover-textColor');
+    hoverTextColor = (hoverTextColor == "" || hoverTextColor == null || typeof (hoverTextColor) == "undefined") ? '' : hoverTextColor;
+    if (hoverBgColor || hoverTextColor) {
+        $('mim-menu ul .mim-menu').hover(function () {
+            $(this).css({
+                'background-color': hoverBgColor,
+                'color': hoverTextColor
+            });
+        }, function () {
+            $(this).css({
+                'background': 'none',
+                'color': textColor
+            });
+        });
+        $('mim-menu ul .mim-menu-item').hover(function () {
+            $(this).css({
+                'background-color': hoverBgColor,
+                'color': hoverTextColor
+            })
+        }, function () {
+            $(this).css({
+                'background': 'none',
+                'color': textColor
+            })
+        });
+    }
     var active = $('mim-menu').attr('default-active');
     active = (active == "" || active == null || typeof (active) == "undefined") ? '' : active;
     if (active) {

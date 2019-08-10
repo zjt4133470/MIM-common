@@ -8,21 +8,21 @@
  * 2.弹窗
  * 3.按钮样式
  * 4.布局容器
- * 5.加载图标
+ * 5.加载页
  * 6.input
  * 7.侧边栏
  */
 /*矢量图*/
-@import "//at.alicdn.com/t/font_1321360_mww3flj41bf.css";
+@import "//at.alicdn.com/t/font_1321360_w5r2mgdah0a.css";
 
 @font-face {
     font-family: 'iconfont';  /* project id 1321360 */
-    src: url('//at.alicdn.com/t/font_1321360_mww3flj41bf.eot');
-    src: url('//at.alicdn.com/t/font_1321360_mww3flj41bf.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1321360_mww3flj41bf.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.eot');
+    src: url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1321360_w5r2mgdah0a.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -285,6 +285,10 @@ mim-button[type=text] {
     padding: 0;
 }
 
+mim-button[type=text][disabled] {
+    color: #c0c4cc;
+}
+
 /*禁用*/
 mim-button[disabled] {
     cursor: not-allowed;
@@ -315,6 +319,21 @@ mim-button[plain][type =primary]:hover, mim-button[plain][type =primary]:active,
     background-color: #409eff;
     border: 1px solid #409eff;
     outline: none;
+}
+
+.mim-loading {
+    float: left;
+    animation: MIMloading 1.5s linear infinite;
+}
+
+@keyframes MIMloading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /*危险*/
