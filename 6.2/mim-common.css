@@ -432,6 +432,11 @@ mim-button[type=text]:active {
     color: #409eff;
 }
 
+.iconfontRight {
+    float: right;
+    margin-left: 5px !important;
+}
+
 /*4布局容器*/
 /*Container 布局容器*/
 mim-container {
