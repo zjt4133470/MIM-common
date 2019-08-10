@@ -347,6 +347,27 @@ $(function () {
         if ($('mim-button').eq(b).attr('loading') == 'true') {
             $('<i class="iconfont mim-loading">&#xe687;</i>').appendTo($('mim-button').eq(b))
         }
+
+        switch ($('mim-button').eq(b).attr('size')) {
+            case 'medium':
+                $('mim-button').eq(b).css({
+                    height: '36px',
+                    lineHeight: '36px'
+                });
+                break;
+            case 'small':
+                $('mim-button').eq(b).css({
+                    height: '32px',
+                    lineHeight: '32px'
+                });
+                break;
+            case 'mini':
+                $('mim-button').eq(b).css({
+                    height: '28px',
+                    lineHeight: '28px'
+                });
+                break;
+        }
     }
     //input
     $('mim-input .clearInput').prev().css('padding-right', '30px');
