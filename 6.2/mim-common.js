@@ -370,6 +370,28 @@ $(function () {
         }
     }
     //input
+    for (var iu = 0; iu < $('mim-input').length; iu++) {
+        switch ($('mim-input').find('input').eq(iu).attr('size')) {
+            case 'medium':
+                $('mim-input').find('input').eq(iu).css({
+                    height: '36px',
+                    lineHeight: '36px'
+                });
+                break;
+            case 'small':
+                $('mim-input').find('input').eq(iu).css({
+                    height: '32px',
+                    lineHeight: '32px'
+                });
+                break;
+            case 'mini':
+                $('mim-input').find('input').eq(iu).css({
+                    height: '28px',
+                    lineHeight: '28px'
+                });
+                break;
+        }
+    }
     $('mim-input .clearInput').prev().css('padding-right', '30px');
     $('mim-input .showPassword').prev().css('padding-right', '30px');
     $('mim-input .noPassword').prev().css('padding-right', '30px');
