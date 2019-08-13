@@ -1,6 +1,6 @@
 /**
  * mim-common.css
- * @version  6.2
+ * @version  6.3
  * @author 王富贵
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.
@@ -8,7 +8,7 @@
  * 2.弹窗
  * 3.按钮样式
  * 4.布局容器
- * 5.加载
+ * 5.加载页
  * 6.input
  * 7.侧边栏
  */
@@ -504,15 +504,57 @@ mim-col {
     min-height: 36px;
 }
 
-/*5加载图标*/
+/*5加载页*/
 mim-loading {
+    position: absolute;
+    z-index: 9999999;
+    background-color: hsla(0, 0%, 100%, .9);
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .3s;
+    user-select: none;
+}
+
+.mim-loading-div {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    text-align: center;
+    z-index: 99999999;
+    position: absolute;
+}
+
+.mim-loading-icon {
+    user-select: none;
     display: inline-block;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: #dfdfdf solid 2.5px;
     border-left-color: #19b6f8;
     animation: UIloading 1s linear infinite;
+}
+
+.mim-loadingText {
+    color: #409eff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.mim-loading-icon-iconfont {
+    user-select: none;
+    display: inline-block;
+    font-size: 40px !important;
+    animation: UIloading 1s linear infinite;
+    color: #409eff;
 }
 
 @keyframes UIloading {
@@ -524,6 +566,7 @@ mim-loading {
         transform: rotate(360deg);
     }
 }
+
 
 /*input样式*/
 input::-webkit-input-placeholder {
