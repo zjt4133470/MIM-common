@@ -373,67 +373,112 @@ $(function () {
     }
 
     //input
-
     for (var iu = 0; iu < $('mim-input').length; iu++) {
-        switch ($('mim-input').find('input').eq(iu).attr('size')) {
-            case 'medium':
-                $('mim-input').find('input').eq(iu).css({
-                    height: '36px',
-                    lineHeight: '36px'
-                });
-                break;
-            case 'small':
-                $('mim-input').find('input').eq(iu).css({
-                    height: '32px',
-                    lineHeight: '32px'
-                });
-                break;
-            case 'mini':
-                $('mim-input').find('input').eq(iu).css({
-                    height: '28px',
-                    lineHeight: '28px'
-                });
-                break;
+        var mimInput = $('mim-input').eq(iu);
+        var placeholder = mimInput.attr('placeholder');
+        var value = mimInput.attr('value');
+        var type = mimInput.attr('type');
+        var mimClass = mimInput.attr('class');
+        var mimId = mimInput.attr('id');
+        var disabled = mimInput.attr('disabled');
+        var clearable = mimInput.attr('clearable');
+        var showPassword = mimInput.attr('show-password');
+        var maxlength = mimInput.attr('maxlength');
+        var prefixIcon = mimInput.attr('prefix-icon');
+        var suffixIcon = mimInput.attr('suffix-icon');
+        var mimSize = mimInput.attr('size');
+        type = (type == "" || type == null || typeof (type) == "undefined") ? 'text' : type;
+        placeholder = (placeholder == "" || placeholder == null || typeof (placeholder) == "undefined") ? '' : placeholder;
+        value = (value == "" || value == null || typeof (value) == "undefined") ? '' : value;
+        mimClass = (mimClass == "" || mimClass == null || typeof (mimClass) == "undefined") ? '' : mimClass;
+        mimId = (mimId == "" || mimId == null || typeof (mimId) == "undefined") ? '' : mimId;
+        disabled = (disabled == "" || disabled == null || typeof (disabled) == "undefined") ? '' : disabled;
+        prefixIcon = (prefixIcon == "" || prefixIcon == null || typeof (prefixIcon) == "undefined") ? '' : prefixIcon;
+        suffixIcon = (suffixIcon == "" || suffixIcon == null || typeof (suffixIcon) == "undefined") ? '' : suffixIcon;
+        maxlength = (maxlength == "" || maxlength == null || typeof (maxlength) == "undefined") ? '' : maxlength;
+        mimSize = (mimSize == "" || mimSize == null || typeof (mimSize) == "undefined") ? '' : mimSize;
+        clearable = (typeof (clearable) == "undefined") ? '' : true;
+        showPassword = (typeof (showPassword) == "undefined") ? '' : true;
+        var input_ = $('<input type = ' + type + ' class="mim-input" />');
+        input_.appendTo(mimInput);
+        if (placeholder) {
+            input_.attr('placeholder', placeholder)
         }
-    }
-    $('mim-input .clearInput').prev().css('padding-right', '30px');
-    $('mim-input .showPassword').prev().css('padding-right', '30px');
-    $('mim-input .noPassword').prev().css('padding-right', '30px');
-    $('mim-input .suffix-icon').prev().css('padding-right', '30px');
-    $('mim-input .prefix-icon').prev().css('padding-left', '30px');
-    $('mim-input .clearInput').on('click', function () {
-        $(this).prev().val('');
-        $(this).css('display', 'none');
-    });
-    $('mim-input .mim-input').focus(function () {
-        $(this).next().css('display', 'inline-block');
-    });
-    $("mim-input .showPassword").on('click', function () {
-        var id = $(this).prev().attr('id');
-        showPasswordFunction($(this), id);
-    });
+        if (value) {
+            input_.attr('value', value)
+        }
+        if (mimClass) {
+            input_.attr('class', '' + mimClass + ' mim-input')
+        }
+        if (mimId) {
+            input_.attr('id', mimId)
+        }
+        if (disabled) {
+            input_.attr('disabled', disabled)
+        }
+        if (maxlength) {
+            input_.attr('maxlength', maxlength)
+        }
+        if (clearable) {
+            var clearInput = $('<span class="iconfont clearInput">&#xe643;</span>');
+            input_.css('padding-right', '30px');
+            input_.keyup(function () {
+                $(this).next().css('display', 'inline-block');
+            });
+            clearInput.on('click', function () {
+                $(this).prev().val('');
+                $(this).css('display', 'none');
+            });
+            clearInput.appendTo(mimInput);
+        }
+        if (showPassword) {
+            var showpassword = $('<span class="iconfont showPassword">&#xe640;</span>');
+            var noPassword = $('<span class="iconfont noPassword" style="display: none">&#xe614;</span>');
+            input_.css('padding-right', '30px');
+            showpassword.on('click', function () {
+                $(this).hide();
+                $(this).prev().attr('type', 'text');
+                $(this).next().show()
+            }).appendTo(mimInput);
 
-    function showPasswordFunction(that, id) {
-        var showPasswordInput = $('<input type="text" id=' + id + ' class="mim-input" placeholder="请输入密码">');
-        var showPassword = $('<span class="iconfont noPassword">&#xe614;</span>');
-        showPasswordInput.val(that.prev().val());
-        that.prev().remove();
-        that.before(showPasswordInput);
-        that.before(showPassword);
-        that.remove();
-        showPassword.on('click', function () {
-            var noPasswordInput = $('<input type="password" id=' + id + ' class="mim-input" placeholder="请输入密码">');
-            var noPassword = $('<span class="iconfont showPassword">&#xe640;</span>');
-            noPasswordInput.val($(this).prev().val());
-            $(this).prev().remove();
-            $(this).before(noPasswordInput);
-            $(this).before(noPassword);
-            $(this).remove();
             noPassword.on('click', function () {
-                var id = $("mim-input .showPassword").prev().attr('id');
-                showPasswordFunction($("mim-input .showPassword"), id)
-            })
-        });
+                $(this).prev().prev().attr('type', 'password');
+                $(this).prev().show();
+                $(this).hide();
+            }).appendTo(mimInput);
+        }
+        if (prefixIcon) {
+            var prefixIcons = $('<span class="iconfont prefix-icon">&#' + prefixIcon + ';</span>');
+            input_.css('padding-left', '30px');
+            prefixIcons.appendTo(mimInput)
+        }
+        if (suffixIcon) {
+            var suffixIcons = $('<span class="iconfont suffix-icon">&#' + suffixIcon + ';</span>');
+            input_.css('padding-right', '30px');
+            suffixIcons.appendTo(mimInput)
+        }
+        if (mimSize) {
+            switch (mimSize) {
+                case 'medium':
+                    $('mim-input').find('input').eq(iu).css({
+                        height: '36px',
+                        lineHeight: '36px'
+                    });
+                    break;
+                case 'small':
+                    $('mim-input').find('input').eq(iu).css({
+                        height: '32px',
+                        lineHeight: '32px'
+                    });
+                    break;
+                case 'mini':
+                    $('mim-input').find('input').eq(iu).css({
+                        height: '28px',
+                        lineHeight: '28px'
+                    });
+                    break;
+            }
+        }
     }
 
     //侧边栏
