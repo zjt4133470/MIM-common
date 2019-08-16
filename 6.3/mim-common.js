@@ -384,6 +384,7 @@ $(function () {
         var clearable = mimInput.attr('clearable');
         var showPassword = mimInput.attr('show-password');
         var maxlength = mimInput.attr('maxlength');
+        var showWordLimit = mimInput.attr('show-word-limit');
         var prefixIcon = mimInput.attr('prefix-icon');
         var suffixIcon = mimInput.attr('suffix-icon');
         var mimSize = mimInput.attr('size');
@@ -396,6 +397,7 @@ $(function () {
         prefixIcon = (prefixIcon == "" || prefixIcon == null || typeof (prefixIcon) == "undefined") ? '' : prefixIcon;
         suffixIcon = (suffixIcon == "" || suffixIcon == null || typeof (suffixIcon) == "undefined") ? '' : suffixIcon;
         maxlength = (maxlength == "" || maxlength == null || typeof (maxlength) == "undefined") ? '' : maxlength;
+        showWordLimit = (typeof (showWordLimit) == "undefined") ? '' : true;
         mimSize = (mimSize == "" || mimSize == null || typeof (mimSize) == "undefined") ? '' : mimSize;
         clearable = (typeof (clearable) == "undefined") ? '' : true;
         showPassword = (typeof (showPassword) == "undefined") ? '' : true;
@@ -417,10 +419,18 @@ $(function () {
             input_.attr('disabled', disabled)
         }
         if (maxlength) {
-            input_.attr('maxlength', maxlength)
+            input_.attr('maxlength', maxlength);
+
+        }
+        if(showWordLimit){
+            input_.css('padding-right', '50px');
+            var maxlengthInput = $(' <mim-p class="mim-p"><b class="mim-maxlengthlength">0</b> / <b>' + maxlength + '</b></mim-p>').appendTo(mimInput)
+            input_.keyup(function () {
+                $(this).next().find('.mim-maxlengthlength').html($(this).val().length)
+            })
         }
         if (clearable) {
-            var clearInput = $('<span class="iconfont clearInput">&#xe643;</span>');
+            var clearInput = $('<mim-span class="iconfont clearInput">&#xe643;</mim-span>');
             input_.css('padding-right', '30px');
             input_.keyup(function () {
                 $(this).next().css('display', 'inline-block');
@@ -432,8 +442,8 @@ $(function () {
             clearInput.appendTo(mimInput);
         }
         if (showPassword) {
-            var showpassword = $('<span class="iconfont showPassword">&#xe640;</span>');
-            var noPassword = $('<span class="iconfont noPassword" style="display: none">&#xe614;</span>');
+            var showpassword = $('<mim-span class="iconfont showPassword">&#xe640;</mim-span>');
+            var noPassword = $('<mim-span class="iconfont noPassword" style="display: none">&#xe614;</mim-span>');
             input_.css('padding-right', '30px');
             showpassword.on('click', function () {
                 $(this).hide();
@@ -448,12 +458,12 @@ $(function () {
             }).appendTo(mimInput);
         }
         if (prefixIcon) {
-            var prefixIcons = $('<span class="iconfont prefix-icon">&#' + prefixIcon + ';</span>');
+            var prefixIcons = $('<mim-span class="iconfont prefix-icon">&#' + prefixIcon + ';</mim-span>');
             input_.css('padding-left', '30px');
             prefixIcons.appendTo(mimInput)
         }
         if (suffixIcon) {
-            var suffixIcons = $('<span class="iconfont suffix-icon">&#' + suffixIcon + ';</span>');
+            var suffixIcons = $('<mim-span class="iconfont suffix-icon">&#' + suffixIcon + ';</mim-span>');
             input_.css('padding-right', '30px');
             suffixIcons.appendTo(mimInput)
         }

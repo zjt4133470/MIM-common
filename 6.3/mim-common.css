@@ -625,11 +625,24 @@ mim-input .mim-input[disabled] {
     cursor: not-allowed !important;
 }
 
-mim-input span {
+mim-input mim-span {
     position: absolute;
     top: 0;
     right: 0;
     color: #c0c4cc;
+}
+
+mim-input .mim-p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5px;
+    color: #909399;
+}
+
+mim-input .mim-p b {
+    font-weight: normal;
+    color: #909399;
 }
 
 mim-input .clearInput {
