@@ -1,6 +1,6 @@
 /**
  * mim-common.js
- * @version 6.3
+ * @version 6.4
  * @author 王富贵
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.
@@ -678,5 +678,38 @@ $(function () {
             marginLeft: paddingWidth,
             marginRight: paddingWidth
         })
+    }
+
+    // table表格
+    for (var ta = 0; ta < $('mim-table').length; ta++) {
+        var mimTable = $('mim-table').eq(ta);
+        var mimTableStripe = $('mim-table').eq(ta).attr('stripe');
+        var mimTableBorder = $('mim-table').eq(ta).attr('border');
+        var mimTableHeight = $('mim-table').eq(ta).attr('height');
+        mimTableStripe = (mimTableStripe == "" || mimTableStripe == null || typeof (mimTableStripe) == "undefined") ? '' : mimTableStripe;
+        mimTableBorder = (mimTableBorder == "" || mimTableBorder == null || typeof (mimTableBorder) == "undefined") ? '' : mimTableBorder;
+        mimTableHeight = (mimTableHeight == "" || mimTableHeight == null || typeof (mimTableHeight) == "undefined") ? '' : mimTableHeight;
+        if (mimTableStripe !== 'false' && mimTableStripe !== '') {
+            var trLength = $('mim-table').eq(ta).find('table tr').length;
+            for (var tl = 0; tl < trLength; tl++) {
+                if (tl % 2 == 0 && tl !== 0) {
+                    $('mim-table').eq(ta).find('table tr').eq(tl).css("background", '#F2F6FC')
+                }
+            }
+        }
+        if (mimTableBorder !== 'false' && mimTableBorder !== '') {
+            $('mim-table').eq(ta).find('.mim-table tr .is-leaf').css('border', '1px solid #ebeef5')
+        }
+        if (mimTableHeight) {
+            var mimTableHeightOriginal = $('mim-table').eq(ta).find('.mim-table-body-wrapper').css('height');
+            mimTableHeightOriginal = mimTableHeightOriginal.substring(0, mimTableHeightOriginal.length - 2);
+            if (mimTableHeightOriginal > mimTableHeight) {
+                $('mim-table').eq(ta).find('.mim-table-body-wrapper').css({
+                    display: 'inline-block',
+                    height: mimTableHeight
+                })
+                $('mim-table').eq(ta).find('.mim-table-header-wrapper tr').append($('<th width="17px" style="border: 1px solid #ebeef5"></th>'))
+            }
+        }
     }
 });

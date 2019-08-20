@@ -1,6 +1,6 @@
 /**
  * mim-common.css
- * @version  6.3
+ * @version  6.4
  * @author 王富贵
  * @todo more things to abstract, e.g. Loading css etc.
  * Licensed under the MIT license.
@@ -11,6 +11,7 @@
  * 5.加载页
  * 6.input
  * 7.侧边栏
+ * 8.表格
  */
 /*矢量图*/
 @import "//at.alicdn.com/t/font_1321360_w5r2mgdah0a.css";
@@ -750,4 +751,62 @@ mim-menu .second-mim-menu li {
     white-space: nowrap;
 }
 
+/*表格*/
+mim-table {
+    display: inline-block;
+}
+
+mim-table .mim-table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+}
+
+mim-table .mim-table tr .is-leaf {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    padding: 12px 0;
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    border-bottom: 1px solid #ebeef5;
+    font-size: 14px;
+}
+
+mim-table .mim-table tr th {
+    color: #909399;
+}
+
+mim-table .mim-table tr td {
+    color: #606266
+}
+
+mim-table .mim-table tr .is-leaf .cell {
+    position: relative;
+    word-wrap: normal;
+    vertical-align: middle;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+}
+
+.mim-table-body-wrapper {
+    overflow-y: auto;
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    display: inline-block;
+}
 
