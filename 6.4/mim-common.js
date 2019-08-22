@@ -153,7 +153,7 @@
                     that.css({
                         cursor: "pointer"
                     }).removeAttr("disabled").html("获取验证码");
-                    return;
+                    return time = times;
                 }
                 //点击后按钮变化
                 that.css(cssEnd);
@@ -410,10 +410,12 @@ $(function () {
             input_.attr('value', value)
         }
         if (mimClass) {
-            input_.attr('class', '' + mimClass + ' mim-input')
+            input_.attr('class', '' + mimClass + ' mim-input');
+            mimInput.removeAttr('class');
         }
         if (mimId) {
-            input_.attr('id', mimId)
+            input_.attr('id', mimId);
+            mimInput.removeAttr('id');
         }
         if (disabled) {
             input_.attr('disabled', disabled)
@@ -707,7 +709,7 @@ $(function () {
                 $('mim-table').eq(ta).find('.mim-table-body-wrapper').css({
                     display: 'inline-block',
                     height: mimTableHeight
-                })
+                });
                 $('mim-table').eq(ta).find('.mim-table-header-wrapper tr').append($('<th width="17px" style="border: 1px solid #ebeef5"></th>'))
             }
         }
