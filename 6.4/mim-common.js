@@ -13,7 +13,6 @@
  * 7.点击返回顶部
  * 8.简单的AJAX封装
  * 9.简单的拖拽(注：移动的元素必须为绝对定位)
- * 10.select 选择器初始化
  */
 !function () {
     if (typeof (jQuery) !== 'function') {
@@ -360,7 +359,7 @@
                 var that = $(this);
                 for (var op = 0; op < $('select option').length; op++) {
                     if ($('select option').eq(op).attr('idIndex') == that.attr('idIndex')) {
-                        $('select option').eq(op).attr('selected', 'selected')
+                        $('select option').eq(op).attr('selected', 'selected').siblings().removeAttr('selected')
                     }
                 }
             }).appendTo(ul)
