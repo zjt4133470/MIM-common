@@ -518,6 +518,9 @@ mim-loading {
     left: 0;
     transition: opacity .3s;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .mim-loading-div {
@@ -534,6 +537,9 @@ mim-loading {
 
 .mim-loading-icon {
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -553,6 +559,9 @@ mim-loading {
 
 .mim-loading-icon-iconfont {
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     display: inline-block;
     font-size: 40px !important;
     animation: UIloading 1s linear infinite;
@@ -655,6 +664,9 @@ mim-input .iconfont {
     cursor: pointer;
     font-size: 14px !important;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 mim-input .prefix-icon {
@@ -670,6 +682,9 @@ mim-menu {
     position: relative;
     width: 100%;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 mim-menu ul li {
@@ -767,6 +782,9 @@ mim-table .mim-table tr .is-leaf {
     white-space: nowrap;
     overflow: hidden;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     padding: 12px 0;
     min-width: 0;
     box-sizing: border-box;
@@ -800,6 +818,9 @@ mim-table .mim-table tr .is-leaf .cell {
     padding-left: 10px;
     padding-right: 10px;
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .mim-table-body-wrapper {
@@ -817,6 +838,10 @@ mim-select {
     position: relative;
     font-size: 14px;
     display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 mim-select .mim-select {
