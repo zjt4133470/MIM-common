@@ -809,3 +809,99 @@ mim-table .mim-table tr .is-leaf .cell {
     border-collapse: collapse;
 }
 
+/*select*/
+mim-select {
+    width: 240px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+}
+
+mim-select .mim-select {
+    cursor: pointer !important;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    padding-right: 30px;
+}
+
+.mim-select:hover {
+    border-color: #c0c4cc;
+}
+
+.mim-select:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+mim-select mim-span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #c0c4cc;
+    transition: transform .3s;
+}
+
+mim-select .iconfont {
+    font-size: 14px !important;
+    cursor: pointer;
+}
+
+mim-select div {
+    position: absolute;
+    z-index: 99;
+    width: 238px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    display: none;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+mim-select div::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+mim-select div::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #c0c4cc;
+}
+
+mim-select div ul {
+    margin: 10px 0;
+}
+
+mim-select div ul li {
+    list-style: none;
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+mim-select div ul li:hover {
+    background-color: #f5f7fa;
+}
+
+.pitch-select {
+    color: #409eff !important;
+    font-weight: 700 !important;
+}

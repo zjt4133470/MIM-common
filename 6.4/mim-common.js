@@ -13,6 +13,7 @@
  * 7.点击返回顶部
  * 8.简单的AJAX封装
  * 9.简单的拖拽(注：移动的元素必须为绝对定位)
+ * 10.select 选择器初始化
  */
 !function () {
     if (typeof (jQuery) !== 'function') {
@@ -339,10 +340,35 @@
             })
         });
     };
+
+    //select 选择器初始化
+    jQuery.fn.selectInit = MIM.selectInit = function (data) {
+        var res = data;
+        $('<input type="text" class="mim-select" placeholder="请选择" readonly>').appendTo($(this));
+        $('<mim-span class="iconfont">&#xe668;</mim-span>').appendTo($(this));
+        var div = $('<div></div>').appendTo($(this));
+        var ul = $('<ul></ul>').appendTo(div);
+        var select = $('<select style="display:none"></select>').appendTo(div);
+        $('<option>请选择</option>').appendTo(select);
+        for (var op = 0; op < res.length; op++) {
+            var option = $('<option idIndex=' + res[op].id + '>' + res[op].value + '</option>').appendTo(select);
+        }
+        for (var i = 0; i < res.length; i++) {
+            $('<li idIndex=' + res[i].id + '>' + res[i].value + '</li>').click(function () {
+                $(this).parent().parent().prev().prev().val($(this).html());
+                $(this).addClass('pitch-select').siblings().removeClass('pitch-select');
+                var that = $(this);
+                for (var op = 0; op < $('select option').length; op++) {
+                    if ($('select option').eq(op).attr('idIndex') == that.attr('idIndex')) {
+                        $('select option').eq(op).attr('selected', 'selected')
+                    }
+                }
+            }).appendTo(ul)
+        }
+    };
 }();
 //mim-ui
 $(function () {
-
     //button
 
     for (var b = 0; b < $('mim-button').length; b++) {
@@ -714,4 +740,52 @@ $(function () {
             }
         }
     }
+
+    // select 选择框
+    for (var se = 0; se < $('mim-select').length; se++) {
+        var mimSelect = $('mim-select').eq(se);
+        var bool = '';
+        mimSelect.find('mim-span').on('click', function () {
+            $(this).prev().focus();
+        });
+        $('body').click(function () {
+            $('mim-select').find('div').fadeOut();
+            $('mim-select').attr('bool', 'false');
+            $('mim-select').find('mim-span').css({
+                transform: "rotate(0deg)"
+            });
+        });
+        mimSelect.find('input').val(mimSelect.find('option:selected').html());
+        mimSelect.on('click', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+            bool = $(this).attr('bool');
+            var offHeight = $(this).offset().top - $(window).scrollTop();
+            offHeight = $(window).height() - offHeight;
+            var divHeight = $(this).find('div').height();
+            if (offHeight - 40 <= divHeight) {
+                $(this).find('div').css({
+                    bottom: '50px'
+                })
+            } else {
+                $(this).find('div').css({
+                    bottom: 'auto'
+                })
+            }
+            if (bool !== 'false') {
+                $(this).find('div').fadeOut();
+                $(this).find('mim-span').css({
+                    transform: "rotate(0deg)"
+                });
+                $(this).attr('bool', 'false')
+            } else {
+                $(this).find('div').fadeIn();
+                $(this).find('mim-span').css({
+                    transform: "rotate(180deg)"
+                });
+                $(this).attr('bool', 'true')
+            }
+        });
+    }
+
 });
