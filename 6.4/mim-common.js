@@ -364,7 +364,7 @@
         $('<mim-span class="iconfont">&#xe668;</mim-span>').appendTo($(this));
         var div = $('<div></div>').appendTo($(this));
         var ul = $('<ul></ul>').appendTo(div);
-        var select = $('<select style=""></select>').appendTo(div);
+        var select = $('<select style="display: none"></select>').appendTo(div);
         $('<option></option>').appendTo(select);
         for (var op = 0; op < res.length; op++) {
             var option = $('<option idIndex=' + res[op].id + '>' + res[op].value + '</option>').appendTo(select);
