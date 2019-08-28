@@ -342,13 +342,30 @@
 
     //select 选择器初始化
     jQuery.fn.selectInit = MIM.selectInit = function (data) {
+        var clearable = $(this).attr('clearable');
+        clearable = (clearable == null || clearable == "" || typeof (clearable) == "undefined") ? "" : clearable;
+        var mimSpans = '';
+        if (clearable == 'true') {
+            var that = $(this)
+            $(this).hover(function () {
+                mimSpans = $('<mim-spans class="iconfont">&#xe643;</mim-spans>').click(function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    that.find('input').val('');
+                    that.find('div ul li').removeClass('pitch-select');
+                    that.find('option:selected').html('')
+                }).appendTo($(this));
+            }, function () {
+                mimSpans.remove();
+            })
+        }
         var res = data;
         $('<input type="text" class="mim-select" placeholder="请选择" readonly>').appendTo($(this));
         $('<mim-span class="iconfont">&#xe668;</mim-span>').appendTo($(this));
         var div = $('<div></div>').appendTo($(this));
         var ul = $('<ul></ul>').appendTo(div);
-        var select = $('<select style="display:none"></select>').appendTo(div);
-        $('<option>请选择</option>').appendTo(select);
+        var select = $('<select style=""></select>').appendTo(div);
+        $('<option></option>').appendTo(select);
         for (var op = 0; op < res.length; op++) {
             var option = $('<option idIndex=' + res[op].id + '>' + res[op].value + '</option>').appendTo(select);
         }
@@ -359,11 +376,12 @@
                 var that = $(this);
                 for (var op = 0; op < $('select option').length; op++) {
                     if ($('select option').eq(op).attr('idIndex') == that.attr('idIndex')) {
-                        $('select option').eq(op).attr('selected', 'selected').siblings().removeAttr('selected')
+                        $('select option').eq(op).attr('selected', 'selected').siblings().removeAttr('selected');
                     }
                 }
             }).appendTo(ul)
         }
+
     };
 }();
 //mim-ui

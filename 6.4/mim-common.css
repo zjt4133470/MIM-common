@@ -885,6 +885,18 @@ mim-select mim-span {
     transition: transform .3s;
 }
 
+mim-select mim-spans {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    color: #c0c4cc;
+    z-index: 10;
+    transition: transform .3s;
+    background-color: #ffffff;
+    height: 25px;
+    line-height: 25px;
+}
+
 mim-select .iconfont {
     font-size: 14px !important;
     cursor: pointer;
