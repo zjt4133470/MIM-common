@@ -370,7 +370,9 @@
             var option = $('<option idIndex=' + res[op].id + '>' + res[op].value + '</option>').appendTo(select);
         }
         for (var i = 0; i < res.length; i++) {
-            $('<li idIndex=' + res[i].id + '>' + res[i].value + '</li>').click(function () {
+            var disabled = res[i].disabled;
+            disabled = (disabled == null || disabled == "" || typeof (disabled) == "undefined") ? "" : 'disabled';
+            $('<li idIndex=' + res[i].id + ' disabled = ' + disabled + '>' + res[i].value + '</li>').click(function () {
                 $(this).parent().parent().prev().prev().val($(this).html());
                 $(this).addClass('pitch-select').siblings().removeClass('pitch-select');
                 var that = $(this);
@@ -381,7 +383,6 @@
                 }
             }).appendTo(ul)
         }
-
     };
 }();
 //mim-ui
@@ -650,7 +651,6 @@ $(function () {
             }
         }
     });
-
 
     $('mim-menu ul li .disabled').click(function (e) {
         e.stopPropagation();

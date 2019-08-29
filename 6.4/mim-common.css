@@ -692,6 +692,11 @@ mim-menu ul li {
     width: 100%;
 }
 
+mim-menu ul li .disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 mim-menu ul li .mim-menu {
     height: 56px;
     line-height: 56px;
@@ -936,6 +941,13 @@ mim-select div ul li {
     height: 40px;
     padding: 0 15px;
     cursor: pointer;
+}
+
+mim-select div ul [disabled=disabled] {
+    color: #999999;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .6;
 }
 
 mim-select div ul li:hover {
