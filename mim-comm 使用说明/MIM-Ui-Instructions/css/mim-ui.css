@@ -1,0 +1,585 @@
+.mim-header {
+    background-color: #f56c6c;
+    color: #ffffff;
+}
+
+.mim-footer {
+    margin-top: 50px;
+}
+
+.mim-header h3 {
+    display: inline-block;
+    font-size: 25px;
+}
+
+.currentRightTime {
+    float: right;
+    font-size: 14px;
+}
+
+.icon_div .iconfont {
+    float: left;
+    width: 50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    color: #666;
+    font-size: 13px;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+
+.aside {
+    overflow: auto;
+    color: #fff;
+    background-color: #324057;
+    border: none;
+    list-style: none;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*改变滚动条样式*/
+.aside::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+    background-color: rgb(50, 64, 87);
+}
+
+.aside::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 1px;
+    background-color: rgb(50, 64, 87);
+}
+
+.mim-main {
+    bottom: 0;
+    left: 200px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: #e9eef3;
+    color: #333;
+}
+
+mim-menu {
+    overflow: auto;
+}
+
+.detailsDiv {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: none;
+}
+
+.detailsDiv::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background-color: rgb(50, 64, 87);
+}
+
+.detailsDiv::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 0;
+    background-color: rgb(50, 64, 87);
+}
+
+.homePage {
+    position: relative;
+    font-size: 16px;
+}
+
+.homePageDiv {
+    text-align: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+}
+
+.version {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    color: #909399;
+}
+
+#cssText, #jsText {
+    width: 50%;
+    height: 80%;
+    outline: none;
+    resize: none;
+}
+
+.vesselDiv {
+    position: relative;
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+.vesselDiv h3 {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.vesselDiv p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.vesselDiv h5 {
+    margin-top: 0px;
+    font-size: 16px;
+}
+
+#layoutBasics {
+    width: 100%;
+    border: none;
+    min-height: 480px;
+    outline: none;
+    resize: none;
+    display: none;
+    font-size: 14px;
+    text-align: left;
+}
+
+#layoutInterval {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 220px;
+    display: none;
+    font-size: 14px;
+    text-align: left;
+}
+
+#layoutMixture {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 286px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#layoutOffset {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 352px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#containerBasics {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 773px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonBasics {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 345px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonForbidden {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 263px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonText {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 219px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonIcon {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 155px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonLoagin {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 200px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#buttonSize {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 263px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputBasics {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 150px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputDisabled {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 150px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputClear {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 150px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputPassword {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 150px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputIcon {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 223px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputSize {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 229px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#inputWordLimit {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 229px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#navSide {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 410px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#navSideStyle {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 536px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimLoading {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 689px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimLoadingStyle {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 500px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimLoadingEntirety {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 150px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimTable {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 366px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimTableStripe {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 395px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#mimButtonborder {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 368px;
+    font-size: 14px;
+    display: none;
+    text-align: left;
+}
+
+#versionUpdating {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 500px;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 50px;
+}
+
+#mimSelect {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 190px;
+    font-size: 14px;
+    text-align: left;
+    display: none;
+}
+
+#mimSelectClearable {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 190px;
+    font-size: 14px;
+    text-align: left;
+    display: none;
+}
+
+#mimSelectDisabled {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    min-height: 190px;
+    font-size: 14px;
+    text-align: left;
+    display: none;
+}
+
+.mim-footer p {
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+}
+
+.mim-footer p .iconfont {
+    vertical-align: middle;
+    font-size: 16px !important;
+}
+
+.previousPage {
+    cursor: pointer;
+    float: left;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.previousPage .iconfont {
+    position: absolute;
+    left: 0;
+    transform: rotate(90deg);
+}
+
+.nextPage {
+    cursor: pointer;
+    float: right;
+    vertical-align: middle;
+    user-select: none;
+}
+
+.nextPage .iconfont {
+    position: absolute;
+    right: 0;
+    transform: rotate(270deg);
+}
+
+.previousPage:hover, .nextPage:hover {
+    color: #409eff !important;
+}
+
+.upward {
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+}
+
+.upward .iconfont {
+    font-size: 50px !important;
+    cursor: pointer;
+    color: #409eff;
+    user-select: none;
+    display: none;
+}
+
+.basisButton mim-button {
+    margin-left: 20px;
+}
+
+.basisInput {
+    padding: 25px;
+}
+
+#loadingClickShowDiv {
+    display: none;
+}
+
+.vesselDiv .mim-prompt_div {
+    margin-top: 20px;
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 90%;
+}
+
+.mim-prompt_div p span {
+    width: 200px;
+}
+
+.basisInput_div p {
+    margin-top: 20px;
+    background: #F2F6FC;
+    padding: 0 15px;
+}
+
+.basisInput_div p input {
+    outline: none;
+    border: none;
+    width: 90%;
+}
+
+.basisInput_div p mim-button {
+    float: right;
+    line-height: 47px;
+}
+
+.mim-table-state .mim-table tr .is-leaf {
+    padding: 2px !important;
+}
+
+#divDragDiv {
+    width: 100px;
+    height: 100px;
+    background: #67C23A;
+    position: absolute;
+    z-index: 999999999;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 100px;
+    text-align: center
+}
