@@ -694,7 +694,11 @@ mim-menu ul li {
 
 mim-menu ul li .disabled {
     cursor: not-allowed;
-    pointer-events: none;
+    /*pointer-events: none;*/
+}
+
+mim-menu ul li .disabled:hover {
+    background-color: transparent !important;
 }
 
 mim-menu ul li .mim-menu {

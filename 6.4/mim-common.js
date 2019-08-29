@@ -652,10 +652,7 @@ $(function () {
         }
     });
 
-    $('mim-menu ul li .disabled').click(function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-    });
+    $('mim-menu ul li .disabled').unbind('click');
 
     //加载页
     for (var lo = 0; lo < $('mim-loading').length; lo++) {
