@@ -367,7 +367,7 @@ mim-button[plain][type=success] {
     border-color: #c2e7b0;
 }
 
-mim-button[plain][type=success]:hover, mim-button[plain][type=danger]:active, mim-button[plain][type=danger]:focus {
+mim-button[plain][type=success]:hover, mim-button[plain][type=success]:active, mim-button[plain][type=success]:focus {
     color: #ffffff;
     background-color: #67c23a;
     border: 1px solid #67c23a;
