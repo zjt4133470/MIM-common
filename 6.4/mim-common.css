@@ -284,6 +284,7 @@ mim-button[type=text] {
     color: #66b1ff;
     display: inline;
     padding: 0;
+    line-height: 0;
 }
 
 mim-button[type=text][disabled] {
