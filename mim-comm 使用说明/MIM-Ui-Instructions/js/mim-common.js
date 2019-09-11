@@ -391,7 +391,7 @@ $(function () {
 
     for (var b = 0; b < $('mim-button').length; b++) {
         if ($('mim-button').eq(b).attr('loading') == 'true') {
-            $('<i class="iconfont mim-loading">&#xe687;</i>').appendTo($('mim-button').eq(b))
+            $('<i style="color: #ffffff" class="iconfont mim-loading">&#xe687;</i>').appendTo($('mim-button').eq(b))
         }
 
         switch ($('mim-button').eq(b).attr('size')) {
