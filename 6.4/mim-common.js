@@ -623,7 +623,7 @@ $(function () {
         }
     }
     $('mim-menu ul li').on('click', function (e) {
-        e.preventDefault();
+        // e.preventDefault();
         e.stopPropagation();
         if ($(this).find('.icon-copy-down').length !== 0) {
             var bool = $(this).find('.icon-copy-down').attr('bool');
