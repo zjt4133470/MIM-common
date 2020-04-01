@@ -1,0 +1,255 @@
+﻿详细用法：参考MIM-Ui 地址：
+1.0版本：
+	*使用es6语法仅用于谷歌不适用于ie
+
+	*成功或失敗的提示框
+	调用方式：prompt（"500","2000",true,"我是一句话"）
+
+	*时间格式化
+	调用方式：timeFilter（时间戳）timeFilter1（时间戳）timeFilter2（时间戳）timeFilter3（时间戳）timeFilter4（时间戳）
+
+	*弹窗
+	调用方式：confirm（"500","我是一句话",{成功的回调函数},"确定(可不填)","取消(可不填),{取消的回调函数}"）
+
+	*验证码倒计时（需要用button）
+	调用方式：countDown("60",{点击按钮前CSS样式},{点击按钮后CSS样式})
+
+	*点赞
+	调用方式：likeResult("提示的一句话",{提示话语的样式})
+	
+	*图片上传阿里云（请详细阅读）
+
+1.1版本：（比较上一版本）
+
+	*更新所用语法，适用于所有浏览器
+
+	*新增（验证的封装）
+	调用方式：verification("类型","需要验证的内容",{验证通过的返回},{验证失败的返回})
+	
+	*移除（点赞功能）
+
+2.0版本：	（比较上一版本）
+
+	*采用全新写法挂载到CMM上
+	
+	*调用方式完全改变，变为（CMM.方法（参数））
+	
+	*保留 * 1.成功或失敗的提示框  2.弹窗 3.验证码倒计时，其余移除
+
+2.1版本：（比较上一版本）
+
+	*采用全新写法挂载到MIM上
+
+	*调用方式无较大变化
+
+	*新增  4.时间格式化	
+	调用方式：MIM.timeFilter（时间戳,"（若年月日不需要则填false）",“（若时分不需要则填false）"）
+
+	5.点赞
+	
+	6.自定义验证（提供手机号和邮箱认证） 
+	调用方式：MIM.verifyReg("验证类型（提供手机号和邮箱）或者验证的正则表达式","验证的数值","是否必填")
+
+	7.点击返回顶部
+
+	调用方式：MIM.goToTop()调用即可
+
+3.0版本（比较上一版本）
+
+	*采用全新写法样式和js分离
+
+	*调用方式发生改变支持jq调用方法，支持$$和MIM调用
+	例：$$.prompt('我是一段文字',true,1000);
+    	MIM.prompt('我是一段文字',false,1000);
+    	$('body').prompt('我是一段文字',true,1000);
+	均可以调用，且取消了自主添加宽度
+	（若更改样式，均可在css中更新）
+
+	*无新增，无删除
+
+3.1版本（比较上一版本）
+
+	*调用方式无过多变化
+
+	*新增	8.简单的AJAX封装
+ 		9.简单的拖拽(注：移动的元素必须为绝对定位)
+
+4.0版本（比较上一版本）
+
+	*调用方式发生变化（基于jquery）（3.验证码倒计时5.点赞 9. 拖拽）且调用方式唯一
+	例：   （更新前） $('#zan').click(function () {
+      		$$.likeResult("赞",{
+        			color:"yellow"
+      		});
+    	        });
+
+    		(更新后)$('#zan').likeResult("赞",{
+      			color:"yellow"
+   		 });
+
+5.0版本（比较上一版本）
+
+	*提示框改版（成功，失败，警告，消息）
+	调用方式：
+	MIM.prompt('我是一段成功文字','success',3000);
+	MIM.prompt('我是一段失败文字','error',3000);
+	MIM.prompt('我是一段警告文字','warning',3000);
+	MIM.prompt('我是一段消息文字','info',3000);
+
+	*确认弹窗改版（样式和调用方式）
+	调用方式：
+	 MIM.confirm('此操作将永久删除该文件, 是否继续?',function () {
+       	    MIM.prompt('我是一段成功文字','success',3000);
+    	});
+
+
+5.1版本（比较上一版本）
+	*提示框改版（增加手动删除功能）
+	调用方式（不加则不删除，true则开启删除功能）
+	  MIM.prompt('我是一段成功文字','success',3000,true);
+
+6.0版本（比较上一版本，开启mim-ui）
+
+	*按钮样式
+	调用方式：
+	<mim-button type="default" id="del">删&nbsp;&nbsp;除</mim-button>
+	<mim-button type="primary" disabled>主要按钮</mim-button>
+	<mim-button type="primary"><i class='iconfont'>&#xe60a;</i>搜&nbsp;索</mim-button>
+	<mim-button type="success">成功按钮</mim-button>
+	<mim-button type="info">信息按钮</mim-button>
+	<mim-button type="warning">警告按钮</mim-button>
+	<mim-button type="danger">危险按钮</mim-button>
+	<mim-button type="text">文字按钮</mim-button>
+	*布局容器
+	调用方式：
+	<mim-container>
+    		<mim-header>Header</mim-header>
+    		<mim-main>Main</mim-main>
+    		<mim-footer>Footer</mim-footer>
+	</mim-container>
+
+	*加载图标
+	调用方式：
+	<mim-loading></mim-loading>
+
+6.1版本（比较上一版本）
+	*input样式
+	调用方式：
+	//可清除
+	<mim-input>
+    		<input type="text" class="mim-input" placeholder="请输入内容">
+    		<span class="iconfont clearInput">&#xe643;</span>
+	</mim-input>
+	//前带icon
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入搜索内容">
+    		<span class="iconfont prefix-icon">&#xe60a;</span>
+	</mim-input>
+	//后带icon
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入日期">
+    		<span class="iconfont suffix-icon">&#xe669;</span>
+	</mim-input>
+	//基础
+	<mim-input >
+    		<input type="text" class="mim-input" placeholder="请输入内容">
+	</mim-input>
+//密码显示框
+	<mim-input>
+    		<input type="password" class="mim-input" placeholder="请输入密码">
+    		<span class="iconfont showPassword">&#xe640;</span>
+	</mim-input>
+
+6.2版本（比较上一版本）
+	*按钮样式功能新增
+	*更改布局容器添加mim-aside
+	调用方式：
+  	<mim-aside>
+        	<aside style="width: 200px">aside</aside>
+        	<mim-main style="background: #67c23a">Main</mim-main>
+    	</mim-aside>
+
+    	*更改布局容器添加mim-row
+	调用方式：
+	<mim-row>
+    <mim-col span="24"></mim-col>
+	</mim-row>
+  	<mim-aside>
+        	<aside style="width: 200px">aside</aside>
+        	<mim-main style="background: #67c23a">Main</mim-main>
+    	</mim-aside>
+
+	*侧边栏样式
+	调用方式：
+	    <mim-menu>
+        <ul>
+            <li>
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe624;</i>
+                    <span index="1">导航一</span>
+                    <i class="iconfont icon-copy-down" bool="false">&#xe668;</i>
+                </div>
+                <ul class="second-mim-menu">
+                    <li class="mim-menu-item">
+                        <span index="2">导航一（1）</span>
+                    </li>
+                    <li class="mim-menu-item">
+                        <span index="3">导航一（2）</span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="mim-menu disabled">
+                    <i class="iconfont">&#xe621;</i>
+                    <span index="4">导航二</span>
+                </div>
+            </li>
+            <li class="">
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe66b;</i>
+                    <span index="5">导航三</span>
+                </div>
+            </li>
+            <li>
+                <div class="mim-menu">
+                    <i class="iconfont">&#xe605;</i>
+                    <span index="6">导航四</span>
+                </div>
+            </li>
+        </ul>
+    </mim-menu>
+	*初始化侧边栏样式（function (BackCss, FountCss, hoverBackCss, hoverFountCss)）
+	*BackCss背景色，FountCss文字颜色，hoverBackCss鼠标滑过后背景颜色,hoverFountCss鼠标滑过后文字颜色
+	调用方式：
+	    MIM.mimMenuInit('yellow','blue','#d60000','#ffffff')
+
+	6.3版本（比较上一版本）
+
+	*加载改变为加载页面优化加载
+
+	*input全新改版（调用方式升级）
+	添加限制字数功能
+
+	*侧栏优化
+
+	6.4版本（比较上一版本）
+	*新增table表格
+	*倒计时优化（解决倒计时结束再次点击不生效问题）
+	*input框优化（解决val取值问题）
+	
+	7.0版本（比较上一版本）
+	* 代码全新优化，优化写法减少代码量更加简洁易懂，样式全面优化;
+	* 取消$$的调用方式
+	*（prompt）成功失败消息提示框样式全新改版，效果改版，失败类型error改为danger；
+	*（confirm）弹窗改版为MessageBox 弹框包含alert confirm 以用来适用更多场景，优化弹框样式。
+	* 新增Notification 通知
+	* 新增Drawer 抽屉
+	* select选择框优化
+	 1.清空选择时clearable = true改成仅仅写clearable即可；
+	 2.下拉框添加placeholder属性.
+	*简单的AJAX封装优化
+	 1.添加可以进行ajax设置请求头setRequestHeader的方法；
+	*修复bug:1.多个下拉框选择时 option值互通，
+	         2.下拉框div宽度不随着框宽度变化而变化，
+	        
+	         
