@@ -272,10 +272,12 @@
     };
 
     //点赞
-    jQuery.fn.likeResult = function (str, css) {
+    MIM.likeResult = function (str, css) {
         /*
         * @param str提示的语句 css展示的样式(默认字体颜色#F56C6C)
         * */
+        console.log($(this)[0] === window.MIM);
+        // console.log($(this).prototype);
         $(this).on('click', function () {
             var that = $(this);
             var y = that.offset().top;
@@ -467,11 +469,11 @@
         }
     };
     //抽屉初始化
-    jQuery.fn.drawerInit = function (str) {
+    MIM.drawerInit = function (str) {
         /*
       * @param str传入class
       * */
-        $(this).on('click', function () {
+        function drawer() {
             $('body').css('overflow', 'hidden');
             var mimDrawer = $('.' + str + '');
             var title = mimDrawer.attr('drawerTitle');
@@ -523,17 +525,16 @@
                     }).animate({height: size, opacity: '1'}, 0);
                     break;
             }
-        })
-
+        }
     };
     //Notification 通知
     MIM.notification = function (type, obj) {
-        var top = 20;
+        var top = 50;
         var set = '';
         clearTimeout(set);
         var num = $('.mim-notification').length;
         if ($('div').hasClass('mim-notification')) {
-            top = $('.mim-notification').eq(Number(num - 1)).height() * (num + 1) + 20 * (num)
+            top = $('.mim-notification').eq(Number(num - 1)).height() * (num + 1) + 50 * (num)
         }
         if (type === '$notify') {
             var title = obj.title;
