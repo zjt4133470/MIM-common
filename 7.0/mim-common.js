@@ -276,8 +276,6 @@
         /*
         * @param str提示的语句 css展示的样式(默认字体颜色#F56C6C)
         * */
-        console.log($(this)[0] === window.MIM);
-        // console.log($(this).prototype);
         $(this).on('click', function () {
             var that = $(this);
             var y = that.offset().top;
