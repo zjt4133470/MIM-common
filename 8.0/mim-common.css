@@ -1,0 +1,1116 @@
+/**
+ * mim-common.css
+ * @version  8.0
+ * @author 王富贵
+ * @todo more things to abstract, e.g. Loading css etc.
+ * Licensed under the MIT license.
+ */
+/*矢量图*/
+@import "//at.alicdn.com/t/font_1321360_u5ode0f48c.css";
+
+@font-face {
+    font-family: 'iconfont';  /* project id 1321360 */
+    src: url('//at.alicdn.com/t/font_1321360_u5ode0f48c.eot');
+    src: url('//at.alicdn.com/t/font_1321360_u5ode0f48c.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-size: 25px !important;
+    font-style: normal;
+    margin: 0 10px;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*通配符*/
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: content-box;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", Arial, sans-serif
+}
+
+/*清除浮动*/
+.mimClear:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.mimClear {
+    *zoom: 1; /*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+
+
+/*1.成功或失敗的提示框*/
+/*最外层样式*/
+.mim-prompt_success_box, .mim-prompt_danger_box, .mim-prompt_warning_box, .mim-prompt_info_box {
+    width: 400px;
+    height: 25px;
+    padding: 10px;
+    z-index: 999999;
+    border-radius: 4px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mim-prompt_success_p, .mim-prompt_danger_p, .mim-prompt_warning_p, .mim-prompt_info_p {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    float: left;
+}
+
+.mim-prompt_success_p span, .mim-prompt_danger_p span, .mim-prompt_warning_p span, .mim-prompt_info_p span {
+    width: calc(100% - 70px);
+    display: inline-block;
+    line-height: 25px;
+    height: 25px;
+    vertical-align: top;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mim-prompt_success_p .iconfont, .mim-prompt_danger_p .iconfont, .mim-prompt_warning_p .iconfont, .mim-prompt_info_p .iconfont {
+    font-size: 16px !important;
+}
+
+.mim_number .mim-prompt_i {
+    color: #909399;
+    cursor: pointer;
+}
+
+/*成功时样式*/
+.mim-prompt_success_box {
+    background-color: #f0f9eb;
+    border: 1px solid #ebeef5;
+}
+
+.mim-prompt_success_p {
+    color: #67C23A;
+}
+
+/*失败时样式*/
+.mim-prompt_danger_box {
+    background-color: rgb(253, 226, 226);
+    border: 1px solid #ebeef5;
+}
+
+.mim-prompt_danger_p {
+    color: #F56C6C;
+}
+
+/*警告时样式*/
+.mim-prompt_warning_box {
+    background-color: rgb(250, 236, 216);
+    border: 1px solid #ebeef5;
+}
+
+.mim-prompt_warning_p {
+    color: #E6A23C;
+}
+
+/*普通消息样式*/
+.mim-prompt_info_box {
+    background-color: rgb(233, 233, 235);
+    border: 1px solid #ebeef5;
+}
+
+.mim-prompt_info_p {
+    color: #909399;
+}
+
+/*2弹窗*/
+/*最外层样式*/
+.mim-confirm_out {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    z-index: 999999;
+}
+
+/*内层样式*/
+.mim-confirm_inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    display: inline-block;
+    width: 450px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    font-size: 18px;
+    box-shadow: 2px 10px 12px 0 rgba(0, 0, 0, .1);
+    text-align: left;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.mim-confirm_h {
+    font-size: 18px;
+    line-height: 1;
+    color: #303133;
+    text-align: left;
+    letter-spacing: 1px;
+    font-weight: normal;
+    padding: 15px 15px 10px;
+}
+
+.mim-confirm_h span {
+    vertical-align: top;
+}
+
+.mim-confirm_h i {
+    font-size: 25px !important;
+    float: right;
+    margin: -5px 0;
+    color: #909399;
+    cursor: pointer;
+}
+
+.mim-confirm_p {
+    width: 100%;
+    color: #606266;
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+
+.mim-confirm_p i {
+    font-size: 20px !important;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 0;
+}
+
+.mim-confirm_p p {
+    width: 100%;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.mim-confirm_p p span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    margin: 0;
+    line-height: 24px;
+    width: calc(100% - 50px);
+}
+
+.mim-confirm_p p .alterSpan {
+    width: 100%;
+}
+
+.mim-confirm_button1, .mim-confirm_button2 {
+    cursor: pointer;
+    min-width: 75px;
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 3px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: none;
+    border-radius: 4px;
+    float: right;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.mim-confirm_button1 {
+    background-color: #409eff;
+    border: 1px solid #409eff;
+    margin-right: 15px;
+}
+
+.mim-confirm_button2 {
+    float: right;
+    border: 1px solid #dcdfe6;
+    background-color: #ffffff;
+    color: #606266;;
+    margin-right: 15px;
+}
+
+/*3按钮样式*/
+mim-button {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+mim-button .iconfont {
+    font-size: 14px !important;
+    display: inline-block;
+    vertical-align: top;
+    font-style: normal;
+    margin: 0 5px 0 0;
+}
+
+/*仅有图标*/
+mim-button .onlyIconfont {
+    margin: 0 10px;
+}
+
+/*普通*/
+mim-button[type=default] {
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+mim-button[plain][type=default] {
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+mim-button[plain][type=default]:hover {
+    background: #fff;
+    border-color: #409eff;
+    color: #409eff;
+}
+
+/*文本*/
+mim-button[type=text] {
+    color: #66b1ff;
+    display: inline;
+    padding: 0;
+    line-height: 0;
+}
+
+mim-button[type=text][disabled] {
+    color: #c0c4cc;
+}
+
+/*禁用*/
+mim-button[disabled] {
+    cursor: not-allowed;
+    opacity: .8;
+    background-color: #aaaaaa !important;
+    border: 1px solid #aaaaaa !important;
+}
+mim-button[disabled]:hover{
+    opacity: .8;
+}
+
+/*圆角按钮*/
+mim-button[round] {
+    border-radius: 20px;
+    padding: 0 15px;
+}
+
+/*主要*/
+mim-button[type=primary] {
+    background-color: #409eff;
+    border: 1px solid #409eff;
+}
+
+mim-button[plain][type =primary] {
+    color: #409eff;
+    background: #ecf5ff;
+    border-color: #b3d8ff;
+}
+
+mim-button[plain][type =primary]:hover, mim-button[plain][type =primary]:active, mim-button[plain][type =primary]:focus {
+    color: #ffffff;
+    background-color: #409eff;
+    border: 1px solid #409eff;
+    outline: none;
+}
+
+.mim-loading {
+    float: left;
+    animation: MIMloading 1.5s linear infinite;
+}
+
+@keyframes MIMloading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*危险*/
+mim-button[type=danger] {
+    background-color: #f56c6c;
+    border: 1px solid #f56c6c;
+}
+
+mim-button[plain][type=danger] {
+    color: #f56c6c;
+    background: #fef0f0;
+    border-color: #fbc4c4;
+}
+
+mim-button[plain][type=danger]:hover, mim-button[plain][type=danger]:active, mim-button[plain][type=danger]:focus {
+    color: #ffffff;
+    background-color: #f56c6c;
+    border: 1px solid #f56c6c;
+}
+
+/*成功*/
+mim-button[type=success] {
+    background-color: #67c23a;
+    border: 1px solid #67c23a;
+}
+
+mim-button[plain][type=success] {
+    color: #67c23a;
+    background: #f0f9eb;
+    border-color: #c2e7b0;
+}
+
+mim-button[plain][type=success]:hover, mim-button[plain][type=success]:active, mim-button[plain][type=success]:focus {
+    color: #ffffff;
+    background-color: #67c23a;
+    border: 1px solid #67c23a;
+}
+
+/*警告*/
+mim-button[type=warning] {
+    background-color: #e6a23c;
+    border: 1px solid #e6a23c;
+}
+
+mim-button[plain][type=warning] {
+    color: #e6a23c;
+    background: #fdf6ec;
+    border-color: #f5dab1;
+}
+
+mim-button[plain][type=warning]:hover, mim-button[plain][type=warning]:active, mim-button[plain][type=warning]:focus {
+    color: #ffffff;
+    background-color: #e6a23c;
+    border: 1px solid #e6a23c;
+}
+
+/*信息*/
+mim-button[type=info] {
+    background-color: #909399;
+    border: 1px solid #909399;
+}
+
+mim-button[plain][type=info] {
+    color: #909399;
+    background: #f4f4f5;
+    border-color: #d3d4d6;
+}
+
+mim-button[plain][type=info]:hover, mim-button[plain][type=info]:active, mim-button[plain][type=info]:focus {
+    color: #ffffff;
+    background-color: #909399;
+    border: 1px solid #909399;
+}
+
+mim-button:hover {
+    opacity: .8;
+}
+
+mim-button:active {
+    opacity: 1;
+}
+
+mim-button[type=default]:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+}
+
+mim-button[type=default]:active {
+    background-color: #ffffff;
+    border: 1px solid #dcdfe6;
+    color: #606266;
+}
+
+mim-button[type=text]:active {
+    color: #409eff;
+}
+
+.iconfontRight {
+    float: right;
+    margin-left: 5px !important;
+}
+
+/*4布局容器*/
+/*Container 布局容器*/
+mim-container {
+    display: flex;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    flex-direction: column;
+}
+
+mim-header {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+mim-aside {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-basis: auto;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 160px;
+}
+
+mim-main {
+    display: block;
+    padding: 20px;
+    flex: 1;
+    flex-basis: auto;
+    min-height: 160px;
+}
+
+mim-footer {
+    display: block;
+    height: 60px;
+    padding: 0 20px;
+    line-height: 60px;
+}
+
+/*Layout 布局*/
+mim-row {
+    display: flex;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    zoom: 1;
+}
+
+mim-row:before, mim-row:after {
+    display: table;
+    content: "";
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+mim-col {
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 36px;
+}
+
+/*5加载页*/
+mim-loading {
+    position: absolute;
+    height: 100%;
+    background-color: hsla(0, 0%, 100%, .9);
+    margin: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mim-loading-div {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 9;
+    position: absolute;
+}
+
+.mim-loading-icon {
+    position: absolute;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin-left: -23px;
+    margin-top: -23px;
+    border: #dfdfdf solid 3px;
+    border-left-color: #19b6f8;
+    animation: UIloading 1s linear infinite;
+}
+
+.mim-loadingText {
+    color: #409eff;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.mim-loading-icon-iconfont {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    display: inline-block;
+    font-size: 40px !important;
+    animation: UIloading 1s linear infinite;
+    color: #409eff;
+}
+
+@keyframes UIloading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*input样式*/
+input::-webkit-input-placeholder {
+    color: #b8c4ce !important;
+}
+
+input::-moz-placeholder {
+    color: #b8c4ce !important;
+}
+
+input::-ms-input-placeholder {
+    color: #b8c4ce !important;
+}
+
+mim-input {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+}
+
+mim-input .mim-input {
+    cursor: pointer !important;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+}
+
+.mim-input:hover {
+    border-color: #c0c4cc;
+}
+
+.mim-input:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+mim-input .mim-input[disabled] {
+    background-color: #f5f7fa;
+    border-color: #e4e7ed;
+    color: #c0c4cc;
+    cursor: not-allowed !important;
+}
+
+mim-input mim-span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #c0c4cc;
+}
+
+mim-input .mim-p {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    color: #909399;
+    font-size: 12px;
+}
+
+mim-input .mim-p b {
+    font-weight: normal;
+    color: #909399;
+}
+
+mim-input .clearInput {
+    display: none;
+}
+
+mim-input .iconfont {
+    cursor: pointer;
+    font-size: 14px !important;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+mim-input .prefix-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #c0c4cc;
+    width: 14px;
+}
+
+/*侧栏*/
+mim-menu {
+    position: relative;
+    width: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+mim-menu ul li {
+    list-style: none;
+    width: 100%;
+}
+
+mim-menu ul li .disabled {
+    cursor: not-allowed;
+    /*pointer-events: none;*/
+}
+
+mim-menu ul li .disabled:hover {
+    background-color: transparent !important;
+}
+
+mim-menu ul li .mim-menu {
+    height: 56px;
+    line-height: 56px;
+    font-size: 14px;
+    padding: 0 20px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s, background-color .3s, color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+mim-menu ul li .mim-menu * {
+    vertical-align: middle;
+}
+
+mim-menu ul li .disabled {
+    opacity: .25;
+    cursor: not-allowed !important;
+}
+
+.mim-menu .iconfont {
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+    width: 24px;
+    text-align: center;
+    font-size: 18px !important;
+}
+
+mim-menu ul li .mim-menu .icon-copy-down {
+    position: absolute;
+    font-size: 12px !important;
+    color: #909399;
+    right: 20px;
+    width: 12px;
+    margin: 0;
+    vertical-align: middle;
+    transition: transform .3s;
+}
+
+mim-menu ul .mim-menu:hover {
+    background-color: #ecf5ff;
+}
+
+mim-menu ul .mim-menu-item:hover {
+    background-color: #ecf5ff;
+}
+
+/*点击成功后样式修改*/
+mim-menu ul .is-active span, mim-menu ul .is-active .iconfont {
+    color: #409eff !important; /*默认*/
+}
+
+.second-mim-menu {
+    display: none;
+}
+
+mim-menu .second-mim-menu li {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 55px;
+    font-size: 14px;
+    color: #303133;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s, background-color .3s, color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+/*表格*/
+mim-table {
+    display: inline-block;
+    border: 1px solid #ebeef5;
+}
+
+mim-table .mim-table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+}
+
+mim-table .mim-table tr .is-leaf {
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 0;
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    border-bottom: 1px solid #ebeef5;
+    font-size: 14px;
+}
+
+mim-table .mim-table tr th {
+    color: #909399;
+}
+
+mim-table .mim-table tr td {
+    color: #606266
+}
+
+mim-table .mim-table tr .is-leaf .cell {
+    position: relative;
+    word-wrap: normal;
+    vertical-align: middle;
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mim-table-body-wrapper {
+    overflow-y: auto;
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+}
+
+/*select*/
+mim-select {
+    width: 240px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+mim-select .mim-select {
+    cursor: pointer !important;
+    width: 100%;
+    -webkit-appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
+    padding-right: 30px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.mim-select:hover {
+    border-color: #c0c4cc;
+}
+
+.mim-select:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+mim-select mim-span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #c0c4cc;
+    transition: transform .3s;
+}
+
+mim-select mim-spans {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    color: #c0c4cc;
+    z-index: 10;
+    transition: transform .3s;
+    background-color: #ffffff;
+    height: 25px;
+    line-height: 25px;
+}
+
+mim-select .iconfont {
+    font-size: 14px !important;
+    cursor: pointer;
+}
+
+mim-select div {
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    display: none;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+mim-select div::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+mim-select div::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #c0c4cc;
+}
+
+mim-select div ul {
+    margin: 10px 0;
+}
+
+mim-select div ul li {
+    list-style: none;
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+mim-select div ul [disabled=disabled] {
+    color: #999999;
+    cursor: not-allowed;
+    /*pointer-events: none;*/
+    opacity: .6;
+}
+
+mim-select div ul li:not([disabled=disabled]):hover {
+    background-color: #f5f7fa;
+}
+
+.pitch-select {
+    color: #409eff !important;
+    font-weight: 700 !important;
+}
+
+/*drawer 抽屉*/
+mim-drawer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    z-index: 999999;
+    display: none;
+}
+
+mim-drawer-cont {
+    z-index: 9999999;
+    background-color: #ffffff;
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+    position: absolute;
+    transition: all .4s;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+mim-drawer-content {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    display: inline-block;
+}
+
+mim-drawer-cont h2 {
+    margin-bottom: 30px;
+    color: #343434;
+    font-size: 16px;
+}
+
+.mim-closeChangeDiv {
+    float: right;
+    margin-top: -5px;
+    cursor: pointer;
+    font-size: 28px !important;
+    font-weight: 500;
+}
+
+/*Notification通知*/
+.mim-notification {
+    width: 330px;
+    box-sizing: border-box;
+    z-index: 999999;
+    position: fixed;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #ebeef5;
+    background-color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.mim-notification p {
+    width: 100%;
+}
+
+.mim-notification span {
+    width: 80%;
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 600;
+    display: inline-block;
+    color: #303133;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.mim-notification-header, .mim-notification-cont {
+    width: 100%;
+}
+
+.mim-notification-cont {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 6px 0 0;
+    color: #606266;
+}
+
+.mim-notification .mim-iconfontDel {
+    position: relative;
+    font-size: 25px !important;
+    display: inline-block;
+    float: right;
+    margin: 0;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/*多行文字溢出省略号*/
+.mim_multi_line {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+/*单行溢出文字省略*/
+.mim-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
