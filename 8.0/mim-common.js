@@ -592,6 +592,8 @@
                         mimDrawer.find('mim-drawer-cont').css({
                             width: 0,
                             right: 0,
+                            top: 0,
+                            bottom: 0,
                             height: 'calc(100vh)'
                         }).animate({width: size, opacity: '1'}, 0);
                         break;
@@ -599,12 +601,16 @@
                         mimDrawer.find('mim-drawer-cont').css({
                             width: 0,
                             left: 0,
+                            top: 0,
+                            bottom: 0,
                             height: 'calc(100vh)'
                         }).animate({width: size, opacity: '1'}, 0);
                         break;
                     case 'ttb':
                         mimDrawer.find('mim-drawer-cont').css({
                             top: 0,
+                            left: 0,
+                            right: 0,
                             width: '100%',
                             height: 0
                         }).animate({height: size, opacity: '1'}, 0);
@@ -612,6 +618,8 @@
                     case 'btt':
                         mimDrawer.find('mim-drawer-cont').css({
                             bottom: 0,
+                            left: 0,
+                            right: 0,
                             width: '100%',
                             height: 0
                         }).animate({height: size, opacity: '1'}, 0);

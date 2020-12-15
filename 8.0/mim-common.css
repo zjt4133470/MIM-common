@@ -6,16 +6,16 @@
  * Licensed under the MIT license.
  */
 /*矢量图*/
-@import "//at.alicdn.com/t/font_1321360_u5ode0f48c.css";
+@import "//at.alicdn.com/t/font_1321360_wd76ahp9ylj.css";
 
 @font-face {
     font-family: 'iconfont';  /* project id 1321360 */
-    src: url('//at.alicdn.com/t/font_1321360_u5ode0f48c.eot');
-    src: url('//at.alicdn.com/t/font_1321360_u5ode0f48c.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1321360_u5ode0f48c.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.eot');
+    src: url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1321360_wd76ahp9ylj.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -319,7 +319,9 @@ mim-button[type=text] {
 }
 
 mim-button[type=text][disabled] {
-    color: #c0c4cc;
+    color: #c0c4cc !important;
+    background-color: transparent !important;
+    border: none !important;
 }
 
 /*禁用*/
@@ -328,8 +330,10 @@ mim-button[disabled] {
     opacity: .8;
     background-color: #aaaaaa !important;
     border: 1px solid #aaaaaa !important;
+    color: #ffffff !important;
 }
-mim-button[disabled]:hover{
+
+mim-button[disabled]:hover {
     opacity: .8;
 }
 
@@ -551,6 +555,7 @@ mim-loading {
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 99;
     transition: opacity .3s;
     user-select: none;
     -webkit-user-select: none;
@@ -565,7 +570,7 @@ mim-loading {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    z-index: 9;
+    z-index: 999;
     position: absolute;
 }
 
@@ -780,6 +785,7 @@ mim-menu ul li .mim-menu .icon-copy-down {
     margin: 0;
     vertical-align: middle;
     transition: transform .3s;
+    transform: rotate(0deg);
 }
 
 mim-menu ul .mim-menu:hover {
@@ -1009,6 +1015,9 @@ mim-drawer {
     position: fixed;
     background-color: rgba(0, 0, 0, .3);
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 999999;
     display: none;
 }
